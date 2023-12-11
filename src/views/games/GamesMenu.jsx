@@ -15,7 +15,7 @@ const GamesMenu = () => {
 
   return (
     <Suspense fallback={<CircleLoader color="#086375" size={25} />}>
-      <section id="dashboard-page" className='overflow-hidden w-full'>
+      <section id="game-page" className='overflow-hidden w-full'>
 
         <HeaderBackBtn />
         

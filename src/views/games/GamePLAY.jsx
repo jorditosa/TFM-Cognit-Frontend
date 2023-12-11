@@ -1,12 +1,13 @@
 import { animated, useSpring } from '@react-spring/web';
 import { t } from "i18next";
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { GAMES_CODE } from "../../constants/constants";
 import { getPlayingGame } from "../../services/gamesService";
 
 
 const GamePLAY = () => {
+  const navigate = useNavigate();
   const [game, setGame] = useState('')
   const location = useLocation();
   const animate = true
@@ -19,12 +20,12 @@ const GamePLAY = () => {
     to: {
       opacity: animate ? 1 : 0,
       transform: animate ? 'scale(1) rotate(360deg)' : 'scale(0.8) rotate(0deg)',
-      color: animate ? 'blue' : 'red', // Puedes cambiar el color aquí
+      color: animate ? 'blue' : 'red', 
     },
     config: { duration: 750 },
   });
   const handleFinishedGame = () => {
-    console.log('finished game')
+    navigate('/games-check')
   }
 
 
