@@ -17,3 +17,12 @@ export const getUsers = async (token) => {
     console.log(error);
   }
 }
+
+export const updateUserInfo = async (user) => {
+  try {
+    const response = await axios.put(`${import.meta.env.VITE_API_URL}/users`, user);
+    return response.status;
+  } catch (error) {
+    console.log(error);
+  }
+}
