@@ -1,12 +1,15 @@
 import { animated, useSpring } from '@react-spring/web';
 import { t } from "i18next";
 import { useEffect, useState } from "react";
+import { useDispatch } from 'react-redux';
 import { useLocation, useNavigate } from "react-router-dom";
 import { GAMES_CODE } from "../../constants/constants";
 import { getPlayingGame } from "../../services/gamesService";
+import { setCurrentGame } from '../../store/games/games.slice';
 
 
 const GamePLAY = () => {
+  const dispatch = useDispatch()
   const navigate = useNavigate();
   const [game, setGame] = useState('')
   const location = useLocation();
@@ -36,6 +39,8 @@ const GamePLAY = () => {
       // Random game
       const game = games[Math.floor(Math.random() * games.length)];
 
+      // Setting the game
+      dispatch(setCurrentGame(game))
       setGame(game)
     })()
   }, [])

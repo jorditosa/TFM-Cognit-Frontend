@@ -1,19 +1,31 @@
 import { useState } from "react"
+import { useSelector } from "react-redux"
+import { useNavigate } from "react-router-dom"
 import HeaderBackBtn from "../../components/HeaderBackBtn"
 import Rombo from "../../components/Rombo"
 import { Regex } from "../../constants/regex"
+import { selectUser } from "../../store/users/users.slice"
 
 const GameCHECK = () => {
   const [checkCode, setCheckCode] = useState('')
   const [ msg, setMsg ] = useState('')
+  const user = useSelector(selectUser)
+  const navigate = useNavigate()
 
   const handleValidation = () => {
     setMsg('')
     
-    // 1. Check code pattern
-    if(!Regex.CODE_VALIDATION.test(checkCode)) {
-      setMsg('El format del Codi incorrecte')
+    // 1. Check code pattern and length
+    if(!Regex.CODE_VALIDATION.test(checkCode) || checkCode.length !== 6) {
+      setMsg('El format del Codi és incorrecte')
       return
+    }
+
+    // 2. Check validation
+    if (checkCode === user.user_code_validation) {
+      navigate('/dashboard')
+    } else {
+      setMsg('La validació no es correcta')
     }
   }
 
