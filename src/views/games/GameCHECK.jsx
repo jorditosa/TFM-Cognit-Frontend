@@ -1,16 +1,19 @@
 import { useState } from "react"
 import { useSelector } from "react-redux"
-import { useNavigate } from "react-router-dom"
 import HeaderBackBtn from "../../components/HeaderBackBtn"
 import Rombo from "../../components/Rombo"
+import ValidationCard from "../../components/ValidationCard"
 import { Regex } from "../../constants/regex"
+import { selectCurrentGame } from "../../store/games/games.slice"
 import { selectUser } from "../../store/users/users.slice"
 
 const GameCHECK = () => {
   const [checkCode, setCheckCode] = useState('')
+  const [isValidCode, setIsValidCode] = useState(false)
   const [ msg, setMsg ] = useState('')
   const user = useSelector(selectUser)
-  const navigate = useNavigate()
+  const game = useSelector(selectCurrentGame)
+  
 
   const handleValidation = () => {
     setMsg('')
@@ -23,7 +26,7 @@ const GameCHECK = () => {
 
     // 2. Check validation
     if (checkCode === user.user_code_validation) {
-      navigate('/dashboard')
+      setIsValidCode(true)
     } else {
       setMsg('La validació no es correcta')
     }
@@ -34,7 +37,7 @@ const GameCHECK = () => {
 
       <HeaderBackBtn />
 
-      <div className="container mt-4 w-full flex flex-col items-center">
+      <div className={`${isValidCode ? 'hidden' : 'flex'} container mt-4 w-full flex-col items-center`}>
 
           <div className="flex flex-col items-center gap-4 mt-24">
             <label htmlFor="UserEmail" className="block text-lima text-3xl font-medium text-lima-700">
@@ -67,8 +70,11 @@ const GameCHECK = () => {
               size='xl'
             />
           </button>
-
       </div>
+
+      {
+        isValidCode && <ValidationCard game={game} />
+      }
     </section>
 
   )
