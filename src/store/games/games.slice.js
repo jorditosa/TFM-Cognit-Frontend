@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   games: [],
-  currentGame: {},
+  currentGame: null,
   loading: false,
   error: null,
 };

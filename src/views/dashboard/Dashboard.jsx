@@ -8,6 +8,7 @@ import Header from "../../components/Header"
 import HeaderBackBtn from "../../components/HeaderBackBtn"
 import Rombo from "../../components/Rombo"
 import useFadeInAnimation from "../../hooks/useFadeInAnimation"
+import { selectCurrentGame } from '../../store/games/games.slice'
 import { selectUser } from '../../store/users/users.slice'
 
 const Dashboard = () => {
@@ -15,6 +16,7 @@ const Dashboard = () => {
   const props = useFadeInAnimation();
   const location = useLocation();
   const userLogged = useSelector(selectUser)
+  const currentGame = useSelector(selectCurrentGame)
 
   // Check if user is logged in
   useEffect(() => {
@@ -95,22 +97,27 @@ const Dashboard = () => {
               {t('dashboard_subheading')}
             </h2>
             <div className="flex gap-24">
+              {
+                currentGame ? (
+              <Link
+                to="/games"
+                >
               <Rombo
-                className=""
+                className="bg-lima"
                 textContent={
-                  <p>Juego 1</p>
+                  <p className='text-blue text-center'>{currentGame?.game_title}</p>
                 }
                 font="md"
-                size='xs'
+                size='md'
               />
-              <Rombo
-                className=""
-                textContent={
-                  <p>Juego 2</p>
-                }
-                font="md"
-                size='xs'
-              />
+              </Link>
+                ) : 
+                (
+                  <p className='text-lima text-xl'>
+                    {t('dashboard_no_game')}
+                  </p>
+                )
+              }
             </div>
           </div>
         </animated.div>

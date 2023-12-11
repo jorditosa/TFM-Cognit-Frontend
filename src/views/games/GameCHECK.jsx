@@ -62,12 +62,12 @@ const GameCHECK = () => {
           onClick={handleValidation}
           >
             <Rombo
-              className="relative -bottom-48 left-32"
+              className="relative -bottom-48"
               textContent={
                 <img src="/assets/icons8-de-acuerdo-64.png" className="w-40" />
               }
               font="xl"
-              size='xl'
+              size='lg'
             />
           </button>
       </div>

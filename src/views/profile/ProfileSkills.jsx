@@ -19,7 +19,7 @@ const ProfileSkills = () => {
 
           <div className="relative w-full flex items-center mt-14 px-4">
             <Rombo
-              className='absolute z-20'
+              className='absolute z-20 reflect'
               textContent={
                 <div className='flex flex-col items-center'>
                   <img src="/assets/icons8-cerebro-64 (1).png" className="w-14" />
@@ -28,6 +28,7 @@ const ProfileSkills = () => {
               font="sm"
               size='xs'
             />
+            <span className='absolute text-lima text-xl z-50 right-10'>{skill_know_points}</span>
             <div className='absolute w-full px-6'>
               <span
                 role="progressbar"
@@ -37,7 +38,7 @@ const ProfileSkills = () => {
               >
                 <span
                   className="block h-14 rounded-full bg-[repeating-linear-gradient(45deg,_var(--tw-gradient-from)_0,_var(--tw-gradient-from)_10px,_var(--tw-gradient-to)_30px,_var(--tw-gradient-to)_40px)] from-lima to-indigo-500"
-                  style={{ width: `${skill_know_points * 100}`}}>
+                  style={{ width: `${skill_know_points * 100 / 5}%` }}>
                 </span>
               </span>
             </div>
@@ -45,7 +46,7 @@ const ProfileSkills = () => {
 
           <div className="relative w-full flex items-center mt-32 px-4">
             <Rombo
-              className='absolute z-20'
+              className='absolute z-20 reflect'
               textContent={
                 <div className='flex flex-col items-center'>
                   <img src="/assets/icons8-escudo-64.png" className="w-14" />
@@ -54,6 +55,7 @@ const ProfileSkills = () => {
               font="sm"
               size='xs'
             />
+            <span className='absolute text-lima text-xl z-50 right-10'>{skill_prot_points}</span>
             <div className='absolute w-full px-6'>
               <span
                 role="progressbar"
@@ -63,7 +65,7 @@ const ProfileSkills = () => {
               >
                 <span
                   className="block h-14 rounded-full bg-[repeating-linear-gradient(45deg,_var(--tw-gradient-from)_0,_var(--tw-gradient-from)_10px,_var(--tw-gradient-to)_30px,_var(--tw-gradient-to)_40px)] from-lima to-indigo-500"
-                   style={{ width: `${skill_prot_points * 100}`}}>
+                  style={{ width: `${skill_prot_points * 100 / 5}%` }}>
                 </span>
               </span>
             </div>
@@ -72,7 +74,7 @@ const ProfileSkills = () => {
 
           <div className="relative w-full flex items-center mt-32 px-4">
             <Rombo
-              className='absolute z-20'
+              className='absolute z-20 reflect'
               textContent={
                 <div className='flex flex-col items-center'>
                   <img src="/assets/icons8-turbina-de-viento-de-agua-64.png" className="w-14" />
@@ -81,6 +83,7 @@ const ProfileSkills = () => {
               font="sm"
               size='xs'
             />
+            <span className='absolute text-lima text-xl z-50 right-10'>{skill_sust_points}</span>
             <div className='absolute w-full px-6'>
               <span
                 role="progressbar"
@@ -90,7 +93,7 @@ const ProfileSkills = () => {
               >
                 <span
                   className="block h-14 rounded-full bg-[repeating-linear-gradient(45deg,_var(--tw-gradient-from)_0,_var(--tw-gradient-from)_10px,_var(--tw-gradient-to)_30px,_var(--tw-gradient-to)_40px)] from-lima to-indigo-500"
-                    style={{ width: `${skill_sust_points * 100}`}}>
+                  style={{ width: `${skill_sust_points * 100}%` }}>
                 </span>
               </span>
             </div>
@@ -99,7 +102,7 @@ const ProfileSkills = () => {
 
           <div className="relative w-full flex items-center mt-32 px-4">
             <Rombo
-              className='absolute z-20'
+              className='absolute z-20 reflect'
               textContent={
                 <div className='flex flex-col items-center'>
                   <img src="/assets/icons8-brújula-64.png" className="w-14" />
@@ -108,6 +111,7 @@ const ProfileSkills = () => {
               font="sm"
               size='xs'
             />
+            <span className='absolute text-lima text-xl z-50 right-10'>{skill_expl_points}</span>
             <div className='absolute w-full px-6'>
               <span
                 role="progressbar"
@@ -117,7 +121,7 @@ const ProfileSkills = () => {
               >
                 <span
                   className="block h-14 rounded-full bg-[repeating-linear-gradient(45deg,_var(--tw-gradient-from)_0,_var(--tw-gradient-from)_10px,_var(--tw-gradient-to)_30px,_var(--tw-gradient-to)_40px)] from-lima to-indigo-500"
-                  style={{ width: `${skill_expl_points * 100}`}}>
+                  style={{ width: `${skill_expl_points * 100}%` }}>
                 </span>
               </span>
             </div>

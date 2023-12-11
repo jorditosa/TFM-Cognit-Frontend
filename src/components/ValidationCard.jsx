@@ -1,6 +1,7 @@
 import { PropTypes } from "prop-types"
 import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
+import { setCurrentGame } from "../store/games/games.slice"
 import { addPoints, addSkillPoints } from "../store/users/users.slice"
 
 const ValidationCard = ({game}) => {
@@ -16,12 +17,15 @@ const ValidationCard = ({game}) => {
     // Adding skill to user
     dispatch(addSkillPoints({skill_points, skill}))
 
+    // Reset games
+    dispatch(setCurrentGame(null))
+
     // Redirect
     navigate('/dashboard')
   }
 
   return (
-    <section className="absolute top-2 left-2 right-2 bottom-2 bg-dark border-4 border-aqua text-lima rounded-3xl shadow-4xl">
+    <section className="absolute max-w-xl m-auto top-2 left-2 right-2 bottom-2 bg-dark border-4 border-aqua text-lima rounded-3xl shadow-4xl">
       <div className="p-8 text-center sm:p-12">
         <p className="text-4xl font-semibold tracking-widest mt-8">
           Enhorabona!
@@ -40,7 +44,7 @@ const ValidationCard = ({game}) => {
         </div>
 
         <button
-          className="mt-8 inline-block w-full rounded-full bg-lima py-4 border-4 border-aqua text-2xl text-dark font-bold shadow-xl shadow-aqua"
+          className="block mt-14 py-2 w-full rounded-md border-lima-200 shadow-lg shadow-aqua text-lima bg-blue border-4 border-lima text-3xl"
           onClick={handleGetRewards}
         >
           Som-hi!

@@ -17,16 +17,15 @@ const GamePLAY = () => {
   const props = useSpring({
     from: {
       opacity: 0,
-      transform: 'scale(0.2) rotate(0deg)',
-      color: 'red', // Puedes cambiar el color aquí
+      transform: 'scale(0.5)',
     },
     to: {
       opacity: animate ? 1 : 0,
-      transform: animate ? 'scale(1) rotate(360deg)' : 'scale(0.8) rotate(0deg)',
-      color: animate ? 'blue' : 'red', 
+      transform: animate ? 'scale(1)' : 'scale(0.9)',
     },
     config: { duration: 750 },
   });
+
   const handleFinishedGame = () => {
     navigate('/games-check')
   }
@@ -51,15 +50,15 @@ const GamePLAY = () => {
         game &&
         <animated.div
           style={props}
-          className="container mt-32 w-full flex flex-col items-center px-8">
-          <h1 className="text-lima text-2xl">{game.game_title}</h1>
+          className="container reflect mt-40 py-10 w-full flex flex-col justify-center px-8 rounded-lg">
+          <h1 className="text-lima text-center text-2xl border-b-4 border-lima shadow-lg shadow-lima rounded-md p-2">{game.game_title}</h1>
 
-          <p className="mt-4 text-lima">
+          <p className="p-2 mt-4 text-lima">
             {game.game_description}
           </p>
 
           <button
-            className="block mt-14 py-2 w-full rounded-md border-lima-200 shadow-sm text-lima bg-blue border-4 border-lima text-3xl"
+            className="block mt-20 py-2 w-full rounded-md border-lima-200 shadow-sm text-lima bg-blue border-4 border-lima text-2xl"
             onClick={handleFinishedGame}
           >
             {t('game_action_cta')}

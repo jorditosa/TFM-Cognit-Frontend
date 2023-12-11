@@ -6,7 +6,7 @@ const Header = ({ user }) => {
 
   return (
     <header className='relative flex justify-between px-6'>
-      <img src={Logo} alt="logo" className='w-24 my-6' />
+      <img src={Logo} alt="logo" className='w-24 my-6 reflect' />
 
       <Rombo
         textContent={

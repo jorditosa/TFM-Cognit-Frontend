@@ -22,6 +22,7 @@
   "dashboard_title": "Tauler de control",
   "dashboard_heading": "Benvingut/da!",
   "dashboard_subheading": "Accions pendents",
+  "dashboard_no_game": "No hi han jocs/accions pendents!",
   "profile_title": "Perfil",
   "profile_heading": "El teu perfil",
   "profile_subheading": "Revisa la informació o les teves estadístiques aquí",

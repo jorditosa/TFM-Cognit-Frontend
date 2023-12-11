@@ -6,7 +6,7 @@ const ProfileAbout = () => {
   const props = useFadeInAnimation();
 
   return (
-    <section className='w-full h-full'>
+    <section className='w-full h-screen'>
 
       <animated.div style={props}>
         <div className="container mt-4 w-full flex flex-col">
