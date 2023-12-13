@@ -34,9 +34,7 @@ const usersSlice = createSlice({
       };
     },
     addSkillPoints: (state, action) => {
-      console.log(action.payload);
       const { skill_points, skill } = action.payload;
-      console.log(skill_points, skill);
 
       switch (skill) {
         case 'Knowledge':

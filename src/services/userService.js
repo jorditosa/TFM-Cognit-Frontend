@@ -18,9 +18,9 @@ export const getUsers = async (token) => {
   }
 }
 
-export const updateUserInfo = async (user) => {
+export const updateUserInfo = async (info) => {
   try {
-    const response = await axios.put(`${import.meta.env.VITE_API_URL}/users`, user);
+    const response = await axios.put(`${import.meta.env.VITE_API_URL}/users`, info);
     return response.status;
   } catch (error) {
     console.log(error);

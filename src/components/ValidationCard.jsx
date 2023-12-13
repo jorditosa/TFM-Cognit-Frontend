@@ -1,25 +1,25 @@
 import { PropTypes } from "prop-types"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
 import { updateUserInfo } from "../services/userService"
 import { setCurrentGame } from "../store/games/games.slice"
-import { addPoints, addSkillPoints } from "../store/users/users.slice"
+import { addPoints, addSkillPoints, selectUser } from "../store/users/users.slice"
 
 const ValidationCard = ({game}) => {
   const dispatch = useDispatch()
   const navigate = useNavigate()
+  const user = useSelector(selectUser)
 
   const { game_points_reward: points, game_skill_points_reward: skill_points, game_reward_type: skill } = game
 
   const handleGetRewards = async () => {
-    console.log(skill)
     // Adding point to user
     dispatch(addPoints(Number(points)))
     // Adding skill to user
     dispatch(addSkillPoints({skill_points, skill}))
 
     // Updating info on Database
-    await updateUserInfo({user_points: points, skill_know_points: skill_points, skill_sust_points: skill_points, skill_prot_points: skill_points})
+    await updateUserInfo({points, skill, skill_points, user: user.user_id}, user.user_id)
 
     // Reset games
     dispatch(setCurrentGame(null))
