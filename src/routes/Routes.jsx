@@ -11,6 +11,7 @@ import ProfileAbout from '../views/profile/ProfileAbout.jsx';
 import ProfileSkills from '../views/profile/ProfileSkills.jsx';
 import TimesUp from '../views/TimesUp.jsx';
 
+import ErrorApp from '../views/ErrorApp.jsx';
 import GameCHECK from '../views/games/GameCHECK.jsx';
 import GameLayout from '../views/games/GameLayout.jsx';
 import GamePLAY from '../views/games/GamePLAY.jsx';
@@ -65,6 +66,10 @@ const router = createBrowserRouter(
     {
       path: '/games-check',
       element: <GameCHECK />,
+    },
+    {
+      path: '/500',
+      element: <ErrorApp />,
     }
   ]
 )

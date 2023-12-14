@@ -29,7 +29,7 @@ const ValidationCard = ({game}) => {
   }
 
   return (
-    <section className="absolute max-w-xl m-auto top-2 left-2 right-2 bottom-2 bg-dark border-4 border-aqua text-lima rounded-3xl shadow-4xl">
+    <section className="w-full max-w-xl m-auto relative z-50 bg-blue border-8 border-lima text-lima rounded-3xl shadow-xl shadow-lima">
       <div className="p-8 text-center sm:p-12">
         <p className="text-4xl font-semibold tracking-widest mt-8">
           Enhorabona!
@@ -48,7 +48,7 @@ const ValidationCard = ({game}) => {
         </div>
 
         <button
-          className="block mt-14 py-2 w-full rounded-md border-lima-200 shadow-lg shadow-aqua text-lima bg-blue border-4 border-lima text-3xl"
+          className="block mt-14 py-2 w-full rounded-md border-lima-200 shadow-lg shadow-aqua text-blue font-semibold bg-lima border-4 border-mint text-3xl"
           onClick={handleGetRewards}
         >
           Som-hi!

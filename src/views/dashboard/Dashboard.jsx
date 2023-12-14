@@ -25,7 +25,6 @@ const Dashboard = () => {
    }
   }, [])
 
-
   return (
     <Suspense fallback={<CircleLoader color="#086375" size={25} />}>
       <section id="dashboard-page" className='overflow-hidden w-full'>

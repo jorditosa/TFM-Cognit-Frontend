@@ -96,7 +96,7 @@ const ProfileSkills = () => {
               >
                 <span
                   className="block h-12 rounded-r-full bg-[repeating-linear-gradient(90deg,_var(--tw-gradient-from)_0,_var(--tw-gradient-from)_10px,_var(--tw-gradient-to)_30px,_var(--tw-gradient-to)_40px)] from-lima to-lima/50"
-                  style={{ width: `${skill_sust_points * 100 / 50}%` }}>
+                  style={{ width: `${skill_sust_points * 100 / 25}%` }}>
                 </span>
               </span>
               <span className='absolute text-lima p-1'>{t('skill_sustainability')}</span>
