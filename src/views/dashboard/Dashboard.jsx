@@ -1,6 +1,6 @@
 import { animated } from '@react-spring/web'
 import { t } from 'i18next'
-import { Suspense, useEffect } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom'
 import { CircleLoader } from 'react-spinners'
@@ -12,6 +12,7 @@ import { selectCurrentGame } from '../../store/games/games.slice'
 import { selectUser } from '../../store/users/users.slice'
 
 const Dashboard = () => {
+  const [currentGameCat, setCurrentGameCat] = useState('')
   const navigate = useNavigate()
   const props = useFadeInAnimation();
   const location = useLocation();
@@ -23,6 +24,12 @@ const Dashboard = () => {
      if(!userLogged) {
      navigate('/home')
    }
+
+   // Check current game
+     if(currentGame.game_category_id == 1) setCurrentGameCat('recycling')
+     if(currentGame.game_category_id == 2) setCurrentGameCat('water')
+     if(currentGame.game_category_id == 3) setCurrentGameCat('fauna')
+     if(currentGame.game_category_id == 4) setCurrentGameCat('flora')
   }, [])
 
   return (
@@ -99,7 +106,7 @@ const Dashboard = () => {
               {
                 currentGame ? (
               <Link
-                to="/games"
+                to={`/games/l/${currentGameCat}`}
                 >
               <Rombo
                 className="bg-lima"
