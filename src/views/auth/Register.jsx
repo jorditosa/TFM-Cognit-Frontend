@@ -13,53 +13,65 @@ import { setCookie } from "../../utils/Cookies";
 
 const Register = () => {
   const [email, setEmail] = useState('')
-  const [legalAge, setLegalAge] = useState('')
-  const [isValidEmail, setIsValidEmail ] = useState(true)
-  const [isValidLegalAge, setIsValidLegalAge ] = useState(true)
+  const [legalAge, setLegalAge] = useState(false)
+  const [isValidEmail, setIsValidEmail] = useState(true)
+  const [isValidLegalAge, setIsValidLegalAge] = useState(true)
   const [isLoading, setIsLoading] = useState(false)
   const [msg, setMsg] = useState('')
   const navigate = useNavigate()
   const userLogged = useSelector(selectUser)
 
- useEffect(() => {
-   if(userLogged) {
-     navigate('/dashboard')
-   }
- }, []);
+  console.log(legalAge)
+
+  useEffect(() => {
+    if (userLogged) {
+      navigate('/dashboard')
+    }
+  }, []);
 
   const handleRegistration = async (e) => {
     e.preventDefault()
     setIsLoading(true)
+    setMsg('')
 
     // Validations
-    setIsValidEmail(Regex.EMAIL.test(email));
-    setIsValidLegalAge(legalAge);
+    const isValidEmail = Regex.EMAIL.test(email)
+    const isValidLegalAge = legalAge
 
-    if (!isValidEmail || !isValidLegalAge) {
+    if (!isValidEmail) {
+      setIsValidEmail(false)
+      setIsLoading(false)
+      return
+    }
+
+    if (!isValidLegalAge) {
+      setIsValidLegalAge(false)
       setIsLoading(false)
       return
     }
 
     // Generating the object to be sent to the backend
     const user = {
-      ...UserModel, 
+      ...UserModel,
       user_status: uuid(),
-      user_email: email, 
+      user_email: email,
       user_code_validation: uuid().slice(0, 6).replace(/(\d{3})(\d{3})/, '$1-$2'),
     }
 
-    try {
-      const res = await createUser(user);
-      if (res === STATUS_CODE.CREATED) {
-        setCookie(user)
-        navigate('/')
-      } else {
-        setMsg(t('error_msg_userAlreadyCreated'))
-      }
-      setIsLoading(false)
+    if (isValidEmail && isValidLegalAge) {
+      try {
+        const res = await createUser(user);
+        if (res === STATUS_CODE.CREATED) {
+          setCookie(user)
+          navigate('/')
+        } else {
+          setMsg(t('error_msg_userAlreadyCreated'))
+        }
+        setIsLoading(false)
 
-    } catch (error) {
-      console.log(error)
+      } catch (error) {
+        console.log(error)
+      }
     }
   }
 
@@ -78,10 +90,10 @@ const Register = () => {
         className='w-full mt-6 flex flex-col justify-center gap-4'
         noValidate
         onSubmit={e => handleRegistration(e)}
-        >
+      >
         <div className="relative">
-          <label htmlFor="UserEmail" className="block text-lima font-medium text-lima-700"> 
-          {t('register_input_email_label')}
+          <label htmlFor="UserEmail" className="block text-lima font-medium text-lima-700">
+            {t('register_input_email_label')}
           </label>
           <input
             id="UserEmail"
@@ -97,21 +109,21 @@ const Register = () => {
 
         <div>
           <div className="flex items-center gap-4">
-            <input 
-            id="checkbox" 
-            name="checkbox"
-            type="checkbox" 
-            value={legalAge}
-            onChange={e => setLegalAge(e.target.checked)}
-            className="w-4 h-4 text-lima bg-white border-black rounded focus:ring-lima focus:ring-2 cursor-pointer" />
-            <label 
-            htmlFor="checkbox" 
-            className="text-sm md:text-base text-lima cursor-pointer"
+            <input
+              id="checkbox"
+              name="checkbox"
+              type="checkbox"
+              value={legalAge}
+              onChange={e => setLegalAge(e.target.checked)}
+              className="w-4 h-4 text-lima bg-white border-black rounded focus:ring-lima focus:ring-2 cursor-pointer" />
+            <label
+              htmlFor="checkbox"
+              className="text-sm md:text-base text-lima cursor-pointer"
             >
               {t('register_input_legalAge_label')}
             </label>
           </div>
-            {!isValidLegalAge && <p className="text-danger text-md py-1">{t('register_input_legalAge_error')}</p>}
+          {!isValidLegalAge && <p className="text-danger text-md py-1">{t('register_input_legalAge_error')}</p>}
         </div>
 
         <button

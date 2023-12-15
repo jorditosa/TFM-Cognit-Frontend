@@ -26,10 +26,10 @@ const Dashboard = () => {
    }
 
    // Check current game
-     if(currentGame.game_category_id == 1) setCurrentGameCat('recycling')
-     if(currentGame.game_category_id == 2) setCurrentGameCat('water')
-     if(currentGame.game_category_id == 3) setCurrentGameCat('fauna')
-     if(currentGame.game_category_id == 4) setCurrentGameCat('flora')
+     if(currentGame?.game_category_id == 1) setCurrentGameCat('recycling')
+     if(currentGame?.game_category_id == 2) setCurrentGameCat('water')
+     if(currentGame?.game_category_id == 3) setCurrentGameCat('fauna')
+     if(currentGame?.game_category_id == 4) setCurrentGameCat('flora')
   }, [])
 
   return (
