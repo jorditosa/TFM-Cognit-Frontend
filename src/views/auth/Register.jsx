@@ -66,10 +66,10 @@ const Register = () => {
   return (
     <section className='container px-4 flex flex-col justify-center items-center'>
       <div>
-        <p className="text-lima text-sm mb-2">
+        <p className="text-lima text-sm md:text-base mb-2">
           {t('register_explanation_1')}
         </p>
-        <p className="text-lima text-sm mb-2">
+        <p className="text-lima text-sm md:text-base mb-2">
           {t('register_explanation_2')}
         </p>
       </div>
@@ -106,7 +106,7 @@ const Register = () => {
             className="w-4 h-4 text-lima bg-white border-black rounded focus:ring-lima focus:ring-2 cursor-pointer" />
             <label 
             htmlFor="checkbox" 
-            className="text-sm text-lima cursor-pointer"
+            className="text-sm md:text-base text-lima cursor-pointer"
             >
               {t('register_input_legalAge_label')}
             </label>

@@ -104,7 +104,7 @@ const Dashboard = () => {
               <Rombo
                 className="bg-lima"
                 textContent={
-                  <p className='text-blue text-center'>{currentGame?.game_title}</p>
+                  <p className='text-blue text-center text-sm'>{currentGame?.game_title}</p>
                 }
                 font="sm"
                 size='sm'
