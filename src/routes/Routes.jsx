@@ -16,6 +16,7 @@ import GameCHECK from '../views/games/GameCHECK.jsx';
 import GameLayout from '../views/games/GameLayout.jsx';
 import GamePLAY from '../views/games/GamePLAY.jsx';
 import GamesMenu from '../views/games/GamesMenu.jsx';
+import HomeInfo from '../views/HomeInfo/HomeInfo.jsx';
 import ProfileInfo from '../views/profile/ProfileInfo.jsx';
 
 const router = createBrowserRouter(
@@ -28,6 +29,7 @@ const router = createBrowserRouter(
         { path: '/home', element: <Home /> },
         { path: '/register', element: <Register /> },
         { path: '/language', element: <Languages /> },
+        { path: '/home-info', element: <HomeInfo /> },
         { path: '/', element: <Navigate to="/home" /> },
       ]
     },

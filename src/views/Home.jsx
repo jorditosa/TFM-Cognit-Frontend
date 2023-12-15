@@ -37,6 +37,7 @@ const Home = () => {
   return (
     <animated.div
     style={props}
+    className='h-full'
     >
       <Link to='/register'>
         <Rombo 
@@ -62,7 +63,7 @@ const Home = () => {
         </Link>
         
         <Link 
-        to='/dashboard/general-info'
+        to='/home-info'
         className="absolute -right-20 -bottom-14 text-center">
           <Rombo 
             textContent={
