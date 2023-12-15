@@ -4,7 +4,6 @@ import { Suspense } from "react"
 import { Link } from 'react-router-dom'
 import { CircleLoader } from 'react-spinners'
 import HeaderBackBtn from "../../components/HeaderBackBtn"
-import Legend from '../../components/Legend'
 import Rombo from "../../components/Rombo"
 import useFadeInAnimation from "../../hooks/useFadeInAnimation"
 import useGamesInfo from '../../hooks/useGamesInfo'
@@ -15,13 +14,12 @@ const GamesMenu = () => {
 
   return (
     <Suspense fallback={<CircleLoader color="#086375" size={25} />}>
-      <section id="game-page" className='overflow-hidden w-full'>
+      <section id="game-page" className='overflow-hidden w-full h-screen'>
 
         <HeaderBackBtn />
         
         <animated.div
           style={props}
-          className='h-screen'
         >
           <div className="container mt-4 w-full flex flex-col items-center">
             <h1 className="text-lima text-3xl my-2">
@@ -33,7 +31,7 @@ const GamesMenu = () => {
             </p>
 
             <div className="relative mt-6">
-              <Link to='/games/l/water'>
+              <Link to='/games/l/water' title='Water'>
                 <Rombo
                   className="absolute top-0 -left-14"
                   textContent={
@@ -43,7 +41,7 @@ const GamesMenu = () => {
                   size='sm'
                 />
               </Link>
-              <Link to='/games/l/recycling'>
+              <Link to='/games/l/recycling' title='Recycling'>
                 <Rombo
                   className="absolute top-24 right-8"
                   textContent={
@@ -53,7 +51,7 @@ const GamesMenu = () => {
                   size='sm'
                 />
               </Link>
-              <Link to='/games/l/flora'>
+              <Link to='/games/l/flora' title='Flora'>
                 <Rombo
                   className="absolute top-48 -left-14"
                   textContent={
@@ -63,7 +61,7 @@ const GamesMenu = () => {
                   size='sm'
                 />
               </Link>
-              <Link to='/games/l/fauna'>
+              <Link to='/games/l/fauna' title='Fauna'>
                 <Rombo
                   className="absolute top-24 left-8"
                   textContent={
@@ -76,10 +74,7 @@ const GamesMenu = () => {
             </div>
           </div>
 
-        </animated.div>
-
-        <Legend />
-        
+        </animated.div>        
       </section>
     </Suspense> 
   )

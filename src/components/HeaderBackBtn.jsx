@@ -22,6 +22,20 @@ const Header = () => {
         size='sm'
         className='absolute -right-8 -top-4'
       />
+
+       <Rombo
+        textContent={
+          <button 
+          onClick={() => navigate('/dashboard/general-info')}
+          className='flex items-center w-full'
+          >
+            <img src="/assets/icons8-ayuda-50.png" alt="help icon" />
+          </button>
+        }
+        font='xs'
+        size='xs'
+        className='absolute right-24 -top-0'
+      />
     </header>
   )
 }

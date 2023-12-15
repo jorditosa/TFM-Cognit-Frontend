@@ -69,3 +69,31 @@ New CSS Effects
     below -2px linear-gradient(to top, transparent,
       rgba(0, 0, 0, 0.2));
 }
+
+/*
+Scroll bar
+*/
+
+/* Estilos para Webkit (Chrome, Safari, Opera) */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #AFFC41;
+  border-radius: 50px;
+}
+
+/* Estilos para Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #AFFC41 transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #AFFC41 !important;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}

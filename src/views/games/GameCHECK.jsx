@@ -1,11 +1,13 @@
-import { useState } from "react"
-import { useSelector } from "react-redux"
-import HeaderBackBtn from "../../components/HeaderBackBtn"
-import Rombo from "../../components/Rombo"
-import ValidationCard from "../../components/ValidationCard"
-import { Regex } from "../../constants/regex"
-import { selectCurrentGame } from "../../store/games/games.slice"
-import { selectUser } from "../../store/users/users.slice"
+import { t } from "i18next";
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import HeaderBackBtn from "../../components/HeaderBackBtn";
+import Rombo from "../../components/Rombo";
+import ValidationCard from "../../components/ValidationCard";
+import { Regex } from "../../constants/regex";
+import { selectCurrentGame } from "../../store/games/games.slice";
+import { selectUser } from "../../store/users/users.slice";
+
 
 const GameCHECK = () => {
   const [checkCode, setCheckCode] = useState('')
@@ -17,6 +19,8 @@ const GameCHECK = () => {
 
   const handleValidation = () => {
     setMsg('')
+
+    console.log(checkCode, user.user_code_validation)
     
     // 1. Check code pattern and length
     if(!Regex.CODE_VALIDATION.test(checkCode) || checkCode.length !== 6) {
@@ -37,16 +41,18 @@ const GameCHECK = () => {
 
       <HeaderBackBtn />
 
-      <div className={`${isValidCode ? 'hidden' : 'flex'} container mt-4 w-full flex-col items-center`}>
-
-          <div className="flex flex-col items-center gap-4 mt-24">
-            <label htmlFor="UserEmail" className="block text-lima text-3xl font-medium text-lima-700">
-              Validació!
-            </label>
+      <div className={`${isValidCode ? 'hidden' : 'flex'} container mt-10 w-full flex-col items-center`}>
+        <h2 className="text-lima text-center text-3xl p-2">
+          {t("validation_heading")}
+        </h2>
+        <p className="text-lima text-center">
+           {t("validation_subheading")}
+        </p>
+          <div className="flex flex-col items-center gap-4 mt-16">
             <input
-              id="UserEmail"
-              name="UserEmail"
-              type="email"
+              id="checkCode"
+              name="checkCode"
+              type="text"
               value={checkCode}
               onChange={e => setCheckCode(e.target.value)}
               placeholder="Introdueix el codi"
@@ -62,12 +68,12 @@ const GameCHECK = () => {
           onClick={handleValidation}
           >
             <Rombo
-              className="relative -bottom-48"
+              className="relative -bottom-32"
               textContent={
-                <img src="/assets/icons8-de-acuerdo-64.png" className="w-40" />
+                <img src="/assets/icons8-de-acuerdo-64.png" className="w-32" />
               }
-              font="xl"
-              size='lg'
+              font="md"
+              size='md'
             />
           </button>
       </div>

@@ -60,6 +60,13 @@
   "skill_exploration": "Explorador/a",
   "games_menu_heading": "¡Comenzamos!",
   "games_menu_subheading": "Escoge una categoría",
-  "game_action_cta": "¡Hecho!",
-  "error_msg_userAlreadyCreated": "Ya existe un usuario con esta dirección de correo"
+  "game_action_cta": "¿Lo has conseguido?",
+  "validation_heading": "¿Lo has conseguido?",
+  "validation_subheading": "Ahora es el momento de validarlo, es turno de tu responsable para corroborar si has cumplido con el objetivo del juego/acción",
+  "validation_input_placeholder": "Introduce el código",
+  "validation_congratulations_header": "¡Felicidades!",
+  "validation_congratulations_skill_point": "Punto de habilidad",
+  "validation_congratulations_points": "Puntos",
+  "error_msg_userAlreadyCreated": "Ya existe un usuario con esta dirección de correo",
+  "help_tag_game": "¿Necesitas ayuda para saber más sobre los juegos?"
 }

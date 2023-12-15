@@ -60,6 +60,10 @@
   "skill_exploration": "Explorador/a",
   "games_menu_heading": "Comencem!",
   "games_menu_subheading": "Tria una categoria",
-  "game_action_cta": "Fet!",
-  "error_msg_userAlreadyCreated": "Ja hi ha un usuari amb aquesta adreça de correu electrònic"
+  "game_action_cta": "Ho has aconseguit?",
+  "validation_heading": "Ho has aconseguit?",
+  "validation_subheading": "Ara és el moment de validar-ho. És el torn del teu responsable per corroborar si has complert l'objectiu del joc/acció",
+  "validation_input_placeholder": "Introdueix el codi",
+  "error_msg_userAlreadyCreated": "Ja hi ha un usuari amb aquesta adreça de correu electrònic",
+  "help_tag_game": "Necessites ajuda per saber quins són els jocs?"
 }
