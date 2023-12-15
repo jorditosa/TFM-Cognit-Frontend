@@ -45,7 +45,9 @@ const ValidationCard = ({ game }) => {
           {t("validation_congratulations_header")}
         </p>
 
-        <h2 className="mt-8 text-2xl font-bold">Has superat el joc, has obtingut la següent recompensa:</h2>
+        <h2 className="mt-8 text-2xl font-bold">
+          {t("validation_congratulations_subheader")}
+        </h2>
 
         <div className="flex items-center justify-center mt-8 text-4xl text-lima gap-4">
           <span>{points}</span>
@@ -54,14 +56,14 @@ const ValidationCard = ({ game }) => {
 
         <div className="flex items-center justify-center mt-8 text-4xl text-lima gap-4">
           <span>{skill_points}</span>
-           {t("validation_congratulations_skill_point")}
+          <p className="m-0 text-2xl"> {t("validation_congratulations_skill_point")}</p>
         </div>
 
         <button
           className="block mt-14 py-2 w-full rounded-md border-lima-200 shadow-lg shadow-aqua text-blue font-semibold bg-lima border-4 border-mint text-3xl"
           onClick={handleGetRewards}
         >
-          Som-hi!
+          {t("validation_congratulations_button")}
         </button>
       </div>
 

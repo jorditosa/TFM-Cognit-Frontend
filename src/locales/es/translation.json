@@ -64,9 +64,13 @@
   "validation_heading": "¿Lo has conseguido?",
   "validation_subheading": "Ahora es el momento de validarlo, es turno de tu responsable para corroborar si has cumplido con el objetivo del juego/acción",
   "validation_input_placeholder": "Introduce el código",
+  "validation_input_error_length": "El código debe tener 6 caracteres",
+  "validation_input_error_check": "El código no es correcto",
   "validation_congratulations_header": "¡Felicidades!",
+  "validation_congratulations_subheader": "Has completado el juego, y con eso consigues la siguiente recompensa:",
   "validation_congratulations_skill_point": "Punto de habilidad",
   "validation_congratulations_points": "Puntos",
+  "validation_congratulations_button": "Continuar",
   "error_msg_userAlreadyCreated": "Ya existe un usuario con esta dirección de correo",
   "help_tag_game": "¿Necesitas ayuda para saber más sobre los juegos?"
 }

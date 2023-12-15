@@ -62,8 +62,15 @@
   "games_menu_subheading": "Tria una categoria",
   "game_action_cta": "Ho has aconseguit?",
   "validation_heading": "Ho has aconseguit?",
-  "validation_subheading": "Ara és el moment de validar-ho. És el torn del teu responsable per corroborar si has complert l'objectiu del joc/acció",
+  "validation_subheading": "Ara és el moment de validar-ho, és el torn del teu responsable per corroborar si has complert l'objectiu del joc/acció",
   "validation_input_placeholder": "Introdueix el codi",
+  "validation_input_error_length": "El codi ha de tenir 6 caràcters",
+  "validation_input_error_check": "El codi no és correcte",
+  "validation_congratulations_header": "Felicitats!",
+  "validation_congratulations_subheader": "Has completat el joc, i amb això aconsegueixes la següent recompensa:",
+  "validation_congratulations_skill_point": "Punt d'habilitat",
+  "validation_congratulations_points": "Punts",
+  "validation_congratulations_button": "Continuar",
   "error_msg_userAlreadyCreated": "Ja hi ha un usuari amb aquesta adreça de correu electrònic",
   "help_tag_game": "Necessites ajuda per saber quins són els jocs?"
 }
