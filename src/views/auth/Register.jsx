@@ -36,7 +36,7 @@ const Register = () => {
 
     // Validations
     const isValidEmail = Regex.EMAIL.test(email)
-    const isValidCity = Regex.CITY.test(city)
+    const isValidCity = email.length >= 3
     const isValidLegalAge = legalAge
 
     if (!isValidEmail) {

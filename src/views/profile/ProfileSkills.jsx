@@ -36,7 +36,7 @@ const ProfileSkills = () => {
                 role="progressbar"
                 aria-labelledby="ProgressLabel"
                 aria-valuenow="75"
-                className="block rounded-full bg-blue shadow-lg shadow-aqua"
+                className="block rounded-r-full bg-blue shadow-lg shadow-aqua"
               >
                 <span
                   className="block h-12 rounded-r-full bg-[repeating-linear-gradient(90deg,_var(--tw-gradient-from)_0,_var(--tw-gradient-from)_10px,_var(--tw-gradient-to)_30px,_var(--tw-gradient-to)_40px)] from-lima to-lima/50"
@@ -64,7 +64,7 @@ const ProfileSkills = () => {
                 role="progressbar"
                 aria-labelledby="ProgressLabel"
                 aria-valuenow="75"
-                className="block rounded-full bg-blue shadow-lg shadow-aqua"
+                className="block rounded-r-full bg-blue shadow-lg shadow-aqua"
               >
                 <span
                   className="block h-12 rounded-r-full bg-[repeating-linear-gradient(90deg,_var(--tw-gradient-from)_0,_var(--tw-gradient-from)_10px,_var(--tw-gradient-to)_30px,_var(--tw-gradient-to)_40px)] from-lima to-lima/50"
@@ -92,7 +92,7 @@ const ProfileSkills = () => {
                 role="progressbar"
                 aria-labelledby="ProgressLabel"
                 aria-valuenow="75"
-                className="block rounded-full bg-blue shadow-lg shadow-aqua"
+                className="block rounded-r-full bg-blue shadow-lg shadow-aqua"
               >
                 <span
                   className="block h-12 rounded-r-full bg-[repeating-linear-gradient(90deg,_var(--tw-gradient-from)_0,_var(--tw-gradient-from)_10px,_var(--tw-gradient-to)_30px,_var(--tw-gradient-to)_40px)] from-lima to-lima/50"
@@ -120,7 +120,7 @@ const ProfileSkills = () => {
                 role="progressbar"
                 aria-labelledby="ProgressLabel"
                 aria-valuenow="75"
-                className="block rounded-full bg-blue shadow-lg shadow-aqua"
+                className="block rounded-r-full bg-blue shadow-lg shadow-aqua"
               >
                 <span
                   className="block h-12 rounded-r-full bg-[repeating-linear-gradient(90deg,_var(--tw-gradient-from)_0,_var(--tw-gradient-from)_10px,_var(--tw-gradient-to)_30px,_var(--tw-gradient-to)_40px)] from-lima to-lima/50"

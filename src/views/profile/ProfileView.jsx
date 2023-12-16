@@ -80,7 +80,7 @@ const ProfileView = () => {
         <p className="text-xl text-center text-lima">{user_email}</p>
       </div>
 
-       <div className="container mt-10 pt-4 w-full flex flex-col items-center">
+       <div className="container mt-4 pt-4 w-full flex flex-col items-center">
         <h2 className="text-lima text-3xl my-2">
           {t('profile_subheading_city')}
         </h2>  
