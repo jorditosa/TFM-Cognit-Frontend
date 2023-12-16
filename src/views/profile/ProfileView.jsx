@@ -9,7 +9,7 @@ import { selectUser } from "../../store/users/users.slice"
 const ProfileView = () => {
   const props = useFadeInAnimation();
   const user = useSelector(selectUser);
-  const { user_points, user_email } = user;
+  const { user_points, user_email, user_city } = user;
   
   return (
     <animated.div
@@ -78,6 +78,14 @@ const ProfileView = () => {
         </h2>  
         <hr />
         <p className="text-xl text-center text-lima">{user_email}</p>
+      </div>
+
+       <div className="container mt-10 pt-4 w-full flex flex-col items-center">
+        <h2 className="text-lima text-3xl my-2">
+          {t('profile_subheading_city')}
+        </h2>  
+        <hr />
+        <p className="text-xl text-center text-lima">{user_city}</p>
       </div>
          
     </animated.div>

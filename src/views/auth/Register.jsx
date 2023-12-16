@@ -13,15 +13,15 @@ import { setCookie } from "../../utils/Cookies";
 
 const Register = () => {
   const [email, setEmail] = useState('')
+  const [city, setCity] = useState('')
   const [legalAge, setLegalAge] = useState(false)
   const [isValidEmail, setIsValidEmail] = useState(true)
+  const [isValidCity, setIsValidCity] = useState(true)
   const [isValidLegalAge, setIsValidLegalAge] = useState(true)
   const [isLoading, setIsLoading] = useState(false)
   const [msg, setMsg] = useState('')
   const navigate = useNavigate()
   const userLogged = useSelector(selectUser)
-
-  console.log(legalAge)
 
   useEffect(() => {
     if (userLogged) {
@@ -36,10 +36,17 @@ const Register = () => {
 
     // Validations
     const isValidEmail = Regex.EMAIL.test(email)
+    const isValidCity = Regex.CITY.test(city)
     const isValidLegalAge = legalAge
 
     if (!isValidEmail) {
       setIsValidEmail(false)
+      setIsLoading(false)
+      return
+    }
+
+    if (!isValidCity) {
+      setIsValidCity(false)
       setIsLoading(false)
       return
     }
@@ -56,6 +63,7 @@ const Register = () => {
       user_status: uuid(),
       user_email: email,
       user_code_validation: uuid().slice(0, 6).replace(/(\d{3})(\d{3})/, '$1-$2'),
+      user_city: city,
     }
 
     if (isValidEmail && isValidLegalAge) {
@@ -105,6 +113,22 @@ const Register = () => {
             className={`${isValidEmail ? 'border-lima shadow-mint' : 'border-danger shadow-danger'} mt-1 py-2 pl-4 w-full rounded-md border-lima-200 shadow-sm text-lima bg-blue border-4  placeholder:text-lima`}
           />
           {!isValidEmail && <p className="text-danger text-md py-1">{t('register_input_email_error')}</p>}
+        </div>
+
+         <div className="relative">
+          <label htmlFor="UserCity" className="block text-lima font-medium text-lima-700">
+            {t('register_input_city_label')}
+          </label>
+          <input
+            id="UserCity"
+            name="UserCity"
+            type="text"
+            placeholder={t('register_input_city_placeholder')}
+            value={city}
+            onChange={e => setCity(e.target.value)}
+            className={`${isValidCity ? 'border-lima shadow-mint' : 'border-danger shadow-danger'} mt-1 py-2 pl-4 w-full rounded-md border-lima-200 shadow-sm text-lima bg-blue border-4  placeholder:text-lima`}
+          />
+          {!isValidCity && <p className="text-danger text-md py-1">{t('register_input_city_error')}</p>}
         </div>
 
         <div>

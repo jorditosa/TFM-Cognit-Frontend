@@ -35,12 +35,12 @@ const ValidationCard = ({ game }) => {
   useEffect(() => {
       setInterval(() => {
         setOpenConff(!openConff)
-      }, 1500)
+      }, 3000)
   })
 
   return (
-    <section className="w-full max-w-xl m-auto relative z-50 bg-blue border-8 border-lima text-lima rounded-3xl shadow-xl shadow-lima">
-      <div className="p-8 text-center sm:p-12">
+    <section className="w-full h-full relative z-50 flex justify-center items-center bg-blue border-8 border-lima text-lima rounded-3xl shadow-xl shadow-lima">
+      <div className="max-w-xl p-8 text-center sm:p-12">
         <p className="text-4xl font-semibold tracking-widest mt-8">
           {t("validation_congratulations_header")}
         </p>

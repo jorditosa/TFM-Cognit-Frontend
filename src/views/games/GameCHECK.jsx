@@ -19,8 +19,6 @@ const GameCHECK = () => {
 
   const handleValidation = () => {
     setMsg('')
-
-    console.log(checkCode, user.user_code_validation)
     
     // 1. Check code pattern and length
     if(!Regex.CODE_VALIDATION.test(checkCode) || checkCode.length !== 6) {
@@ -39,7 +37,15 @@ const GameCHECK = () => {
   return (
     <section id="game-page" className='w-full h-screen'>
 
-      <HeaderBackBtn />
+      {
+        isValidCode 
+        ? (
+          null
+        )
+        : (
+        <HeaderBackBtn />
+        )
+      }
 
       <div className={`${isValidCode ? 'hidden' : 'flex'} container mt-10 w-full flex-col items-center`}>
         <h2 className="text-lima text-center text-3xl p-2">

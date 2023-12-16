@@ -7,6 +7,7 @@ const UserModel = {
   skill_sust_points: 0,
   skill_prot_points: 0,
   skill_expl_points: 0,
+  user_city: '',
 };
 
 export default UserModel;
