@@ -2,7 +2,7 @@ import { animated } from '@react-spring/web'
 import { t } from 'i18next'
 import { Suspense, useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom'
+import { Link, Outlet, useLocation } from 'react-router-dom'
 import { CircleLoader } from 'react-spinners'
 import Header from "../../components/Header"
 import HeaderBackBtn from "../../components/HeaderBackBtn"
@@ -13,7 +13,6 @@ import { selectUser } from '../../store/users/users.slice'
 
 const Dashboard = () => {
   const [currentGameCat, setCurrentGameCat] = useState('')
-  const navigate = useNavigate()
   const props = useFadeInAnimation();
   const location = useLocation();
   const userLogged = useSelector(selectUser)
@@ -22,7 +21,7 @@ const Dashboard = () => {
   // Check if user is logged in
   useEffect(() => {
      if(!userLogged) {
-     navigate('/home')
+     window.history.push('/home')
    }
 
    // Check current game

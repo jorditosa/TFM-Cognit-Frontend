@@ -3,7 +3,7 @@ import { describe, expect, test } from 'vitest';
 import Dashboard from './Dashboard';
 
 describe('Dashboard', () => {
-  test('Deberia renderizarse con el Logo', () => {
+  test('Deberia renderizarse el componente', () => {
     render(<Dashboard />);
     expect('Dashboard').toBeTruthy();
   });
