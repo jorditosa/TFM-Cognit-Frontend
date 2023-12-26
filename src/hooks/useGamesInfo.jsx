@@ -1,17 +1,17 @@
-import { getPlayingGame } from "../services/gamesService";
+import { getPlayingGame } from '../services/gamesService'
 
 const useGetGames = () => {
 
-    const getGameToPlay = async (type) => {
-        const games = await getPlayingGame(type);
+	const getGameToPlay = async (type) => {
+		const games = await getPlayingGame(type)
 
-        console.log(games)
-    }
+		console.log(games)
+	}
     
 
-    return {
-        getGameToPlay
-    }
+	return {
+		getGameToPlay
+	}
   
 }
 export default useGetGames

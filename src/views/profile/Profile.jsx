@@ -1,20 +1,21 @@
-import { Outlet, useLocation } from "react-router-dom"
-import HeaderBackBtn from "../../components/HeaderBackBtn"
-import ProfileView from "./ProfileView"
+import React from 'react'
+import { Outlet, useLocation } from 'react-router-dom'
+import HeaderBackBtn from '../../components/HeaderBackBtn'
+import ProfileView from './ProfileView'
 
 const Profile = () => {
-  const location = useLocation()
+	const location = useLocation()
 
-  return (
-    <section id="profile-page" className="h-full">
+	return (
+		<section id="profile-page" className="h-full">
       
-      <HeaderBackBtn />
+			<HeaderBackBtn />
 
-      {location.pathname === '/profile' && <ProfileView />}
+			{location.pathname === '/profile' && <ProfileView />}
 
-      <Outlet />
+			<Outlet />
       
-    </section>
-  )
+		</section>
+	)
 }
 export default Profile
