@@ -1,13 +1,10 @@
-import { animated } from '@react-spring/web'
 import { t } from 'i18next'
-import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import Rombo from '../../components/Rombo'
-import useFadeInAnimation from '../../hooks/useFadeInAnimation'
+import { motion } from 'framer-motion'
 
 const HomeInfo = () => {
 	const navigate = useNavigate()
-	const props = useFadeInAnimation()
 
 	return (
 		<section className='w-full overflow-visible'>
@@ -23,10 +20,13 @@ const HomeInfo = () => {
 				}
 				font='xs'
 				size='xs'
-				className='absolute right-0 top-0'
+				className='absolute right-0 top-0 md:-right-20 md:-top-20'
 			/>
 
-			<animated.div style={props}>
+			<motion.div
+			initial={{ y: 100, opacity: 0}}
+			animate={{ y:0, opacity: 1}}
+			>
 				<div className="container mt-4 w-full flex flex-col">
 					<h1 className="text-lima text-3xl my-2 border-b-4 w-full border-lima px-6">
 						{t('about_heading')}
@@ -51,7 +51,7 @@ const HomeInfo = () => {
 						</p>
 					</article>
 				</div>
-			</animated.div>
+			</motion.div>
 
 
 		</section>

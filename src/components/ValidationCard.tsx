@@ -1,5 +1,4 @@
 import { t } from 'i18next'
-import { PropTypes } from 'prop-types'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
@@ -8,7 +7,11 @@ import { setCurrentGame } from '../store/games/games.slice'
 import { addPoints, addSkillPoints, selectUser } from '../store/users/users.slice'
 import ConfettiComponent from './Confetti'
 
-const ValidationCard = ({ game }) => {
+interface Props {
+	game: any
+}
+
+const ValidationCard = ({ game }: Props) => {
 	const dispatch = useDispatch()
 	const navigate = useNavigate()
 	const user = useSelector(selectUser)
@@ -71,10 +74,6 @@ const ValidationCard = ({ game }) => {
 
 		</section>
 	)
-}
-
-ValidationCard.propTypes = {
-	game: PropTypes.object
 }
 
 export default ValidationCard

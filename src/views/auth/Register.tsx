@@ -1,5 +1,5 @@
 import { t } from 'i18next'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { CircleLoader } from 'react-spinners'
@@ -9,11 +9,10 @@ import { Regex } from '../../constants/regex'
 import UserModel from '../../models/UserModel'
 import { createUser } from '../../services/userService'
 import { selectUser } from '../../store/users/users.slice'
-import { setCookie } from '../../utils/Cookies'
 
 const Register = () => {
 	const [email, setEmail] = useState('')
-	const [city, setCity] = useState('')
+	const [username, setUsername] = useState('')
 	const [legalAge, setLegalAge] = useState(false)
 	const [isValidEmail, setIsValidEmail] = useState(true)
 	const [isValidCity, setIsValidCity] = useState(true)
@@ -29,7 +28,7 @@ const Register = () => {
 		}
 	}, [])
 
-	const handleRegistration = async (e) => {
+	const handleRegistration = async (e: any) => {
 		e.preventDefault()
 		setIsLoading(true)
 		setMsg('')
@@ -63,14 +62,13 @@ const Register = () => {
 			user_status: uuid(),
 			user_email: email,
 			user_code_validation: uuid().slice(0, 6).replace(/(\d{3})(\d{3})/, '$1-$2'),
-			user_city: city,
+			user_name: username,
 		}
 
 		if (isValidEmail && isValidLegalAge) {
 			try {
 				const res = await createUser(user)
 				if (res === STATUS_CODE.CREATED) {
-					setCookie(user)
 					navigate('/')
 				} else {
 					setMsg(t('error_msg_userAlreadyCreated'))
@@ -100,6 +98,22 @@ const Register = () => {
 				onSubmit={e => handleRegistration(e)}
 			>
 				<div className="relative">
+					<label htmlFor="username" className="block text-lima font-medium text-lima-700">
+						{t('register_input_name_label')}
+					</label>
+					<input
+						id="username"
+						name="username"
+						type="text"
+						placeholder={t('register_input_name_placeholder')}
+						value={username}
+						onChange={e => setUsername(e.target.value)}
+						className={`${isValidCity ? 'border-lima shadow-mint' : 'border-danger shadow-danger'} mt-1 py-2 pl-4 w-full rounded-md border-lima-200 shadow-sm text-lima bg-blue border-4  placeholder:text-lima`}
+					/>
+					{!isValidCity && <p className="text-danger text-md py-1">{t('register_input_name_error')}</p>}
+				</div>
+				
+				<div className="relative">
 					<label htmlFor="UserEmail" className="block text-lima font-medium text-lima-700">
 						{t('register_input_email_label')}
 					</label>
@@ -115,21 +129,6 @@ const Register = () => {
 					{!isValidEmail && <p className="text-danger text-md py-1">{t('register_input_email_error')}</p>}
 				</div>
 
-				<div className="relative">
-					<label htmlFor="UserCity" className="block text-lima font-medium text-lima-700">
-						{t('register_input_city_label')}
-					</label>
-					<input
-						id="UserCity"
-						name="UserCity"
-						type="text"
-						placeholder={t('register_input_city_placeholder')}
-						value={city}
-						onChange={e => setCity(e.target.value)}
-						className={`${isValidCity ? 'border-lima shadow-mint' : 'border-danger shadow-danger'} mt-1 py-2 pl-4 w-full rounded-md border-lima-200 shadow-sm text-lima bg-blue border-4  placeholder:text-lima`}
-					/>
-					{!isValidCity && <p className="text-danger text-md py-1">{t('register_input_city_error')}</p>}
-				</div>
 
 				<div>
 					<div className="flex items-center gap-4">
@@ -137,7 +136,6 @@ const Register = () => {
 							id="checkbox"
 							name="checkbox"
 							type="checkbox"
-							value={legalAge}
 							onChange={e => setLegalAge(e.target.checked)}
 							className="w-4 h-4 text-lima bg-white border-black rounded focus:ring-lima focus:ring-2 cursor-pointer" />
 						<label

@@ -1,23 +1,31 @@
-import PropTypes from 'prop-types'
-import React from 'react'
+import { ReactNode } from "react";
 
-const Rombo = ({ className, textContent, font, size }) => {
+interface Props {
+	className?: string;
+	textContent: ReactNode;
+	font: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+	size: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+}
+
+const Rombo = ({ className, textContent, font, size }: Props) => {
   
+	// Asignación del tamaño en base al prop 'size'
 	const sizeClass = {
 		xs: 'w-20 h-20',
 		sm: 'w-28 h-28',
 		md: 'w-40 h-40',
 		lg: 'w-60 h-60',
 		xl: 'w-96 h-96',
-	}[size]
+	}[size] || 'w-40 h-40'
 
+	// Asignación de la clase de fuente en base al prop 'font'
 	const fontClass = {
 		xs: 'text-sm',
 		sm: 'text-lg',
 		md: 'text-xl',
 		lg: 'text-2xl',
 		xl: 'text-5xl',
-	}[font]
+	}[font] || 'text-xl'
 
 	return (
 		<div 
@@ -29,13 +37,6 @@ const Rombo = ({ className, textContent, font, size }) => {
 			</div>
 		</div>
 	)
-}
-
-Rombo.propTypes = {
-	className: PropTypes.string,
-	textContent: PropTypes.node.isRequired,
-	font: PropTypes.string.isRequired,
-	size: PropTypes.string.isRequired,
 }
 
 export default Rombo

@@ -2,18 +2,17 @@
 export default {
 	content: [
 		'./index.html',
-		'./src/**/*.{js,jsx}',
+		'./src/**/*.{js,ts,jsx,tsx}',
 	],
 	theme: {
 		container: {
 			center: true,
 			screens: {
-				xs: '512px',
-				sm: '512px',
-				md: '512px',
-				lg: '512px',
-				xl: '512px',
-			},
+				xs: '480px',
+				sm: '640px',
+				md: '768px',
+				lg: '1000px',
+			  }
 		},
 		extend: {},
 		colors: {
