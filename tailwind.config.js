@@ -8,10 +8,9 @@ export default {
 		container: {
 			center: true,
 			screens: {
-				xs: '480px',
-				sm: '640px',
-				md: '768px',
-				lg: '1000px',
+				xs: '380px',
+				sm: '540px',
+				md: '668px',
 			  }
 		},
 		extend: {},

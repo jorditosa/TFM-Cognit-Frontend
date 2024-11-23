@@ -22,7 +22,7 @@ const Register = () => {
 
 
 	return (
-		<section className='container px-4 flex flex-col justify-center items-center'>
+		<section className='container flex flex-col'>
 			<div>
 				<p className="text-lima text-sm md:text-base mb-2">
 					{t('register_explanation_1')}

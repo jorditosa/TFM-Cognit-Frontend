@@ -19,14 +19,14 @@ const Home = () => {
 					textContent={
 						t('home_heading')
 					}
-					font='lg'
+					font='md'
 					size='md'
 				/>
 			</Link>
 
 			<Link 
 				to='/language'
-				className="absolute -left-20 -bottom-14 text-center">
+				className="absolute left-4 -bottom-14 text-center">
 				<Rombo 
 					textContent={
 						t('home_language_btn')
@@ -38,7 +38,7 @@ const Home = () => {
         
 			<Link 
 				to='/home-info'
-				className="absolute -right-20 -bottom-14 text-center">
+				className="absolute right-4 -bottom-14 text-center">
 				<Rombo 
 					textContent={
 						t('home_faq_btn')

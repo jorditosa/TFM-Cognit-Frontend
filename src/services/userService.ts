@@ -15,7 +15,7 @@ export const createUser = async (user: User) => {
 	}
 }
 
-export const getUsers = async (token) => {
+export const getUser = async (token) => {
 	try {
 		const response = await axios.get(`${import.meta.env.VITE_API_URL}/users/${token}`)
 		return response.data
