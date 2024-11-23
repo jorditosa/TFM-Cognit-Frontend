@@ -13,7 +13,7 @@ const Home = () => {
 			animate={{ y:0, opacity: 1}}
 			className='h-full'
 		>
-			<Link to='/register'>
+			<Link to='/login'>
 				<Rombo 
 					className='my-14'
 					textContent={

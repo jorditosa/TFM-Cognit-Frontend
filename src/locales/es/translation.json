@@ -22,6 +22,8 @@
   "register_input_legalAge_label": "Confirmo que soy mayor de edad y responsable del uso de esta app",
   "register_input_legalAge_error": "Debes ser mayor de edad",
   "register_cta_btn": "Registrarme",
+  "login_title": "Inicia sesión",
+  "login_cta_btn": "Iniciar sesión",
   "dashboard_title": "Dashboard",
   "dashboard_heading": "¡Bienvenido/a!",
   "dashboard_subheading": "Acciones pendientes",

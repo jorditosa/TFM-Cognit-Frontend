@@ -22,6 +22,8 @@
   "register_input_legalAge_label": "Confirmo que soc major d'edat per fer-me responsable de l´us d'aquesta app",
   "register_input_legalAge_error": "Heu de ser major d'edat",
   "register_cta_btn": "Registrar-me",
+  "login_title": "Inicia sessió",
+  "login_cta_btn": "Iniciar sessió",
   "dashboard_title": "Tauler de control",
   "dashboard_heading": "Benvingut/da!",
   "dashboard_subheading": "Accions pendents",

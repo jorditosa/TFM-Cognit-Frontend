@@ -1,42 +1,23 @@
 import { animated } from '@react-spring/web'
 import { t } from 'i18next'
-import React, { Suspense, useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { Suspense } from 'react'
 import { Link, Outlet, useLocation } from 'react-router-dom'
 import { CircleLoader } from 'react-spinners'
 import Header from '../../components/Header'
 import HeaderBackBtn from '../../components/HeaderBackBtn'
 import Rombo from '../../components/Rombo'
 import useFadeInAnimation from '../../hooks/useFadeInAnimation'
-import { selectCurrentGame } from '../../store/games/games.slice'
-import { selectUser } from '../../store/users/users.slice'
 
 const Dashboard = () => {
-	const [currentGameCat, setCurrentGameCat] = useState('')
 	const props = useFadeInAnimation()
 	const location = useLocation()
-	const userLogged = useSelector(selectUser)
-	const currentGame = useSelector(selectCurrentGame)
-
-	// Check if user is logged in
-	useEffect(() => {
-		if(!userLogged) {
-			window.history.push('/home')
-		}
-
-		// Check current game
-		if(currentGame?.game_category_id == 1) setCurrentGameCat('recycling')
-		if(currentGame?.game_category_id == 2) setCurrentGameCat('water')
-		if(currentGame?.game_category_id == 3) setCurrentGameCat('fauna')
-		if(currentGame?.game_category_id == 4) setCurrentGameCat('flora')
-	}, [])
 
 	return (
 		<Suspense fallback={<CircleLoader color="#086375" size={25} />}>
 			<section id="dashboard-page" className='overflow-hidden w-full'>
 
 				{location.pathname === '/dashboard' ? (
-					<Header user={userLogged} />
+					<Header user={'fulanito'} />
 				) : (
 					<HeaderBackBtn />
 				)}
@@ -101,7 +82,7 @@ const Dashboard = () => {
 							<h2 className="mt-12 text-lima text-3xl text-center">
 								{t('dashboard_subheading')}
 							</h2>
-							<div className="flex gap-24">
+							{/* <div className="flex gap-24">
 								{
 									currentGame ? (
 										<Link
@@ -123,7 +104,7 @@ const Dashboard = () => {
 											</p>
 										)
 								}
-							</div>
+							</div> */}
 						</div>
 					</animated.div>
 				) : (

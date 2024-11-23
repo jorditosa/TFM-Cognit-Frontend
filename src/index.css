@@ -97,3 +97,9 @@ Scroll bar
 *::-webkit-scrollbar-track {
   background: transparent;
 }
+
+/* Global tailwind class */
+
+.form-input {
+  @apply my-2 py-3 pl-4 w-full rounded-md shadow-sm text-blue bg-white border-2 placeholder:text-blue border-lima
+}

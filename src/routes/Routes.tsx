@@ -18,6 +18,7 @@ import GamePLAY from '../views/games/GamePLAY'
 import GamesMenu from '../views/games/GamesMenu'
 import HomeInfo from '../views/HomeInfo/HomeInfo'
 import ProfileInfo from '../views/profile/ProfileInfo'
+import Login from '../views/auth/Login'
 
 const router = createBrowserRouter(
 	[
@@ -28,6 +29,7 @@ const router = createBrowserRouter(
 			children: [
 				{ path: '/home', element: <Home /> },
 				{ path: '/register', element: <Register /> },
+				{ path: '/login', element: <Login /> },
 				{ path: '/language', element: <Languages /> },
 				{ path: '/home-info', element: <HomeInfo /> },
 				{ path: '/', element: <Navigate to="/home" /> },

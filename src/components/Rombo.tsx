@@ -29,8 +29,8 @@ const Rombo = ({ className, textContent, font, size }: Props) => {
 
 	return (
 		<div 
-			className={`${className} block rotate-45 rounded-3xl shadow-md bg-blue shadow-aqua hover:shadow-lima cursor-pointer`}>
-			<div className={`${sizeClass} ${fontClass} border-4 border-lima text-lima rounded-3xl flex items-center justify-center hover:bg-purple transition-all duration-150 ease-linear`}>
+			className={`${className} block rotate-45 rounded-3xl shadow-md bg-white shadow-blue hover:shadow-lima cursor-pointer`}>
+			<div className={`${sizeClass} ${fontClass} border border-blue text-blue rounded-3xl flex items-center justify-center hover:bg-blue hover:text-white transition-all duration-150 ease-linear`}>
 				<div className={'-rotate-45 font-bold'}>
 					{textContent}
 				</div>

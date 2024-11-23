@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { CircleLoader } from 'react-spinners'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { createUser } from '../../services/userService';
+import { useNavigate } from 'react-router-dom';
 
 interface Inputs {
 	"username": string;
@@ -11,18 +12,28 @@ interface Inputs {
 }
 
 const Register = () => {
+	const navigate = useNavigate()
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
 	} = useForm<Inputs>()
-	const onSubmit: SubmitHandler<Inputs> = (data) => createUser(data)
+	const onSubmit: SubmitHandler<Inputs> = async (data) => {
+		setIsLoading(true)
+
+		const resp = await createUser(data)
+
+		if (resp === 201 ) {
+			setIsLoading(false)
+			navigate("/login")
+		}
+	}
 
 	const [isLoading, setIsLoading] = useState<boolean>()
 
 
 	return (
-		<section className='container flex flex-col'>
+		<section className='container flex flex-col pb-12'>
 			<div>
 				<p className="text-lima text-sm md:text-base mb-2">
 					{t('register_explanation_1')}
@@ -45,7 +56,7 @@ const Register = () => {
 						id="username"
 						type="text"
 						placeholder={t('register_input_name_placeholder')}
-						className={`mt-1 py-2 pl-4 w-full rounded-md border-lima-200 shadow-sm text-lima bg-blue border-4  placeholder:text-lima`}
+						className="form-input"
 						{...register("username")}
 					/>
 					{errors.username && <p className="text-danger text-md py-1">{t('register_input_name_error')}</p>}
@@ -59,7 +70,7 @@ const Register = () => {
 						id="email"
 						type="email"
 						placeholder={t('register_input_email_placeholder')}
-						className={`mt-1 py-2 pl-4 w-full rounded-md border-lima-200 shadow-sm text-lima bg-blue border-4  placeholder:text-lima`}
+						className="form-input"
 						{...register("email")}
 					/>
 					{errors.email && <p className="text-danger text-md py-1">{t('register_input_email_error')}</p>}
@@ -73,7 +84,7 @@ const Register = () => {
 						id="password"
 						type="password"
 						placeholder={t('register_input_password_placeholder')}
-						className={`mt-1 py-2 pl-4 w-full rounded-md border-lima-200 shadow-sm text-lima bg-blue border-4  placeholder:text-lima`}
+						className="form-input"
 						{...register("password")}
 					/>
 					{errors.password && <p className="text-danger text-md py-1">{t('register_input_email_error')}</p>}
