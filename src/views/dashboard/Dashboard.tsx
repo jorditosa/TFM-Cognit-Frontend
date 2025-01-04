@@ -1,8 +1,6 @@
 import { animated } from '@react-spring/web'
 import { t } from 'i18next'
-import { Suspense } from 'react'
 import { Link, Outlet, useLocation } from 'react-router-dom'
-import { CircleLoader } from 'react-spinners'
 import Header from '../../components/Header'
 import HeaderBackBtn from '../../components/HeaderBackBtn'
 import Rombo from '../../components/Rombo'
@@ -13,7 +11,6 @@ const Dashboard = () => {
 	const location = useLocation()
 
 	return (
-		<Suspense fallback={<CircleLoader color="#086375" size={25} />}>
 			<section id="dashboard-page" className='overflow-hidden w-full'>
 
 				{location.pathname === '/dashboard' ? (
@@ -111,7 +108,6 @@ const Dashboard = () => {
 					<Outlet />
 				)}
 			</section>
-		</Suspense>
 	)
 }
 export default Dashboard

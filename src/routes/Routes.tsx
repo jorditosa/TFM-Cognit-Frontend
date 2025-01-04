@@ -1,7 +1,5 @@
 import { createBrowserRouter, Navigate } from 'react-router-dom'
 import App from '../App'
-import Register from '../views/auth/Register'
-import Dashboard from '../views/dashboard/Dashboard'
 import DashboardInfo from '../views/dashboard/DashboardInfo'
 import ErrorPage from '../views/ErrorPage'
 import Home from '../views/Home'
@@ -18,7 +16,8 @@ import GamePLAY from '../views/games/GamePLAY'
 import GamesMenu from '../views/games/GamesMenu'
 import HomeInfo from '../views/HomeInfo/HomeInfo'
 import ProfileInfo from '../views/profile/ProfileInfo'
-import Login from '../views/auth/Login'
+import Dashboard from '../views/dashboard/Dashboard'
+import DashboardLayout from '../views/dashboard/DashboardLayout'
 
 const router = createBrowserRouter(
 	[
@@ -28,8 +27,6 @@ const router = createBrowserRouter(
 			errorElement: <ErrorPage />,
 			children: [
 				{ path: '/home', element: <Home /> },
-				{ path: '/register', element: <Register /> },
-				{ path: '/login', element: <Login /> },
 				{ path: '/language', element: <Languages /> },
 				{ path: '/home-info', element: <HomeInfo /> },
 				{ path: '/', element: <Navigate to="/home" /> },
@@ -41,9 +38,10 @@ const router = createBrowserRouter(
 		},
 		{
 			path: '/dashboard',
-			element: <Dashboard />,
+			element: <DashboardLayout />,
 			errorElement: <ErrorPage />,
 			children: [
+				{ path: '/dashboard', element: <Dashboard /> },
 				{ path: '/dashboard/general-info', element: <DashboardInfo /> },
 			]
 		},

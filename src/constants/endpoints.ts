@@ -1,3 +1,6 @@
 export const ENDPOINT = {
-    users: "/users"
+    ["home-info"]: "/home-info",
+    users: "/users",
+    languages: '/language',
+    auth: "/auth",
 }
