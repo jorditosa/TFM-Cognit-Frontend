@@ -1,13 +1,13 @@
 import { t } from 'i18next'
 import PropTypes from 'prop-types'
-import { useSelector } from 'react-redux/es/hooks/useSelector'
 import { useNavigate } from 'react-router-dom'
 import Rombo from './Rombo'
 import Logo from '/assets/logo-no-background.svg'
+import { useLanguageStore } from '../store'
 
 const Header = ({ user }) => {
 	const navigate = useNavigate()
-	const language = useSelector(state => state.language.language)
+	const language = useLanguageStore(state => state.language)
 
 	return (
 		<header className='relative flex justify-between px-6'>

@@ -1,32 +1,18 @@
-import { animated, useSpring } from '@react-spring/web'
 import { t } from 'i18next'
-import React, { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux'
+import { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import ConfettiComponent from '../../components/Confetti'
-import { GAMES_CODE } from '../../constants/constants'
 import { getPlayingGame } from '../../services/gamesService'
-import { setCurrentGame } from '../../store/games/games.slice'
+import { motion } from 'framer-motion'
+import { useGameStore } from '../../store/games/games-store'
 
 
 const GamePLAY = () => {
-	const dispatch = useDispatch()
 	const navigate = useNavigate()
-	const [game, setGame] = useState('')
 	const [openConff, setOpenConff] = useState(false)
 	const location = useLocation()
-	const animate = true
-	const props = useSpring({
-		from: {
-			opacity: 0,
-			transform: 'scale(0.5)',
-		},
-		to: {
-			opacity: animate ? 1 : 0,
-			transform: animate ? 'scale(1)' : 'scale(0.9)',
-		},
-		config: { duration: 750 },
-	})
+	const setCurrentGame = useGameStore(state => state.setGame)
+	const game = useGameStore(state => state.game)
 
 	const handleFinishedGame = () => {
 		navigate('/games-check')
@@ -35,10 +21,11 @@ const GamePLAY = () => {
 
 	useEffect(() => {
 		(async () => {
-			const type = location.pathname.split('/')[location.pathname.split('/').length - 1]
-			const games = await getPlayingGame(GAMES_CODE[type])
+			// const type = location.pathname.split('/')[location.pathname.split('/').length - 1]
+
+			//const games = await getPlayingGame(type)
 			// Random game
-			const game = games[Math.floor(Math.random() * games.length)]
+			// const game = games[Math.floor(Math.random() * games.length)]
 
 			setTimeout(() => {
 				setOpenConff(true)
@@ -46,17 +33,15 @@ const GamePLAY = () => {
 
 
 			// Setting the game
-			dispatch(setCurrentGame(game))
-			setGame(game)
+			setCurrentGame(1)
 		})()
-	}, [])
+	}, [setCurrentGame])
 
 	return (
 		<>
 			{
 				game &&
-				<animated.div 
-					style={props} 
+				<motion.div 
 					className="bg-blue/5 container reflect mt-40 py-10 w-full flex flex-col justify-center px-8 rounded-lg">
 					<span className='text-center text-6xl text-lima'> ⬇⬇  </span>
 					<h1 className="text-lima text-3xl rounded-full my-6 text-center"> {game.game_title} </h1>
@@ -74,7 +59,7 @@ const GamePLAY = () => {
 
 					<ConfettiComponent active={openConff} />
 
-				</animated.div>
+				</motion.div>
 			}
 		</>
 	)

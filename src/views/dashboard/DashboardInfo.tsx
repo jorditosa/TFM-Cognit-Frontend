@@ -1,16 +1,13 @@
-import { animated } from '@react-spring/web'
+import { motion } from 'framer-motion'
 import { t } from 'i18next'
-import React from 'react'
 import { Trans } from 'react-i18next'
-import useFadeInAnimation from '../../hooks/useFadeInAnimation'
 
 const DashboardInfo = () => {
-	const props = useFadeInAnimation()
 
 	return (
 		<section className='w-full'>
 
-			<animated.div style={props}>
+			<motion.div>
 
 				<div className="container mt-4 w-full flex flex-col">
 					<h1 className="text-lima text-3xl my-2 border-b-4 w-full border-lima px-6">
@@ -63,7 +60,7 @@ const DashboardInfo = () => {
 						</Trans>
 					</article>
 				</div>
-			</animated.div>
+			</motion.div>
 
 
 		</section>

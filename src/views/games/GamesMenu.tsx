@@ -1,15 +1,13 @@
-import { animated } from '@react-spring/web'
 import { t } from 'i18next'
-import React, { Suspense } from 'react'
+import { Suspense } from 'react'
 import { Link } from 'react-router-dom'
 import { CircleLoader } from 'react-spinners'
 import HeaderBackBtn from '../../components/HeaderBackBtn'
 import Rombo from '../../components/Rombo'
-import useFadeInAnimation from '../../hooks/useFadeInAnimation'
 import useGamesInfo from '../../hooks/useGamesInfo'
+import { motion } from 'framer-motion'
 
 const GamesMenu = () => {
-	const props = useFadeInAnimation()
 	useGamesInfo()
 
 	return (
@@ -18,8 +16,7 @@ const GamesMenu = () => {
 
 				<HeaderBackBtn />
         
-				<animated.div
-					style={props}
+				<motion.div
 				>
 					<div className="container mt-4 w-full flex flex-col items-center">
 						<h1 className="text-lima text-3xl my-2">
@@ -74,7 +71,7 @@ const GamesMenu = () => {
 						</div>
 					</div>
 
-				</animated.div>        
+				</motion.div>        
 			</section>
 		</Suspense> 
 	)

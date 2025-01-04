@@ -2,8 +2,7 @@ import { createBrowserRouter, Navigate } from 'react-router-dom'
 import App from '../App'
 import DashboardInfo from '../views/dashboard/DashboardInfo'
 import ErrorPage from '../views/ErrorPage'
-import Home from '../views/Home'
-import Languages from '../views/Languages'
+import Home from '../views/home/Home'
 import Profile from '../views/profile/Profile'
 import ProfileAbout from '../views/profile/ProfileAbout'
 import ProfileSkills from '../views/profile/ProfileSkills'
@@ -14,10 +13,14 @@ import GameCHECK from '../views/games/GameCHECK'
 import GameLayout from '../views/games/GameLayout'
 import GamePLAY from '../views/games/GamePLAY'
 import GamesMenu from '../views/games/GamesMenu'
-import HomeInfo from '../views/HomeInfo/HomeInfo'
+import HomeInfo from '../views/home/HomeInfo'
 import ProfileInfo from '../views/profile/ProfileInfo'
 import Dashboard from '../views/dashboard/Dashboard'
 import DashboardLayout from '../views/dashboard/DashboardLayout'
+import Languages from '../views/home/Languages'
+import Authentication from '../views/auth/Authentication'
+import Login from '../views/auth/Login'
+import Register from '../views/auth/Register'
 
 const router = createBrowserRouter(
 	[
@@ -29,6 +32,9 @@ const router = createBrowserRouter(
 				{ path: '/home', element: <Home /> },
 				{ path: '/language', element: <Languages /> },
 				{ path: '/home-info', element: <HomeInfo /> },
+				{ path: '/auth', element: <Authentication /> },
+				{ path: '/login', element: <Login /> },
+				{ path: '/register', element: <Register /> },
 				{ path: '/', element: <Navigate to="/home" /> },
 			]
 		},

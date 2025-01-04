@@ -3,4 +3,5 @@ export const ENDPOINT = {
     users: "/users",
     languages: '/language',
     auth: "/auth",
+    dashboard: "/dashboard"
 }

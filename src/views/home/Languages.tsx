@@ -1,15 +1,13 @@
-import React from 'react'
 import { useTranslation } from 'react-i18next'
-import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
-import Rombo from '../components/Rombo'
-import { setLanguage } from '../store/language/language.slice'
+import Rombo from '../../components/Rombo'
+import { useLanguageStore } from '../../store'
 
 const Languages = () => {
-	const dispatch = useDispatch()
 	const { t, i18n } = useTranslation()
+	const setLanguage = useLanguageStore(state => state.setLanguage)
 
-	const changeLanguage = (language) => {
+	const changeLanguage = (language: string) => {
 		i18n.changeLanguage(language)
 	}
 
@@ -25,7 +23,7 @@ const Languages = () => {
 					<button
 						onClick={() => {
 							changeLanguage('ca')
-							dispatch(setLanguage('ca'))
+							setLanguage('ca')
 						}}
 					>
 						<Rombo
@@ -41,7 +39,7 @@ const Languages = () => {
 					<button
 						onClick={() => {
 							changeLanguage('es')
-							dispatch(setLanguage('es'))
+							setLanguage('es')
 						}}
 					>
 						<Rombo

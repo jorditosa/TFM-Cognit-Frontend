@@ -22,6 +22,7 @@ export default {
 			'mint': '#B2FF9E',
 			'danger': '#e76f51',
 			'white': '#ffffff',
+			'light': '#ffffff',
 			'dark': '#1f1f1f',
 			'gray': {
 				100: '#f3f4f6',

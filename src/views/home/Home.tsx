@@ -1,20 +1,11 @@
 
 import { t } from 'i18next'
 import { Link } from 'react-router-dom'
-import Rombo from '../components/Rombo'
+import Rombo from '../../components/Rombo'
 import { motion } from 'framer-motion'
-import { ENDPOINT } from '../constants/endpoints'
-import { useKindeAuth } from '@kinde-oss/kinde-auth-react'
+import { ENDPOINT } from '../../constants/endpoints'
 
 const Home = () => {
-	const { login, register, isAuthenticated } = useKindeAuth();
-	const handleAuth = () => {
-        if (isAuthenticated) {
-            login();
-        } else {
-            register();
-        }
-    };
 
 	return (
 		<motion.div
@@ -23,8 +14,8 @@ const Home = () => {
 			className='w-full h-full mt-12'
 		>
 			<div className='grid grid-cols-2 place-content-center gap-12'>
-				<button 
-				onClick={handleAuth}
+				<Link 
+				to={ENDPOINT.auth}
 				className='col-span-2'
 				>
 					<Rombo
@@ -34,7 +25,7 @@ const Home = () => {
 						font='md'
 						size='md'
 					/>
-				</button>
+				</Link>
 
 				<Link
 					to={ENDPOINT.languages}

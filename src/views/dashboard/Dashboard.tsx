@@ -1,13 +1,11 @@
-import { animated } from '@react-spring/web'
 import { t } from 'i18next'
 import { Link, Outlet, useLocation } from 'react-router-dom'
 import Header from '../../components/Header'
 import HeaderBackBtn from '../../components/HeaderBackBtn'
 import Rombo from '../../components/Rombo'
-import useFadeInAnimation from '../../hooks/useFadeInAnimation'
+import { motion } from 'framer-motion'
 
 const Dashboard = () => {
-	const props = useFadeInAnimation()
 	const location = useLocation()
 
 	return (
@@ -20,8 +18,7 @@ const Dashboard = () => {
 				)}
 
 				{location.pathname === '/dashboard' ? (
-					<animated.div
-						style={props}
+					<motion.div
 						className='h-screen'
 					>
 						<div className="container mt-4 w-full flex flex-col items-center">
@@ -103,7 +100,7 @@ const Dashboard = () => {
 								}
 							</div> */}
 						</div>
-					</animated.div>
+					</motion.div>
 				) : (
 					<Outlet />
 				)}

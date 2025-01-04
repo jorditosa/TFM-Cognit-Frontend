@@ -1,20 +1,16 @@
 import { t } from 'i18next'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useSelector } from 'react-redux'
 import HeaderBackBtn from '../../components/HeaderBackBtn'
 import Rombo from '../../components/Rombo'
 import ValidationCard from '../../components/ValidationCard'
 import { Regex } from '../../constants/regex'
-import { selectCurrentGame } from '../../store/games/games.slice'
-import { selectUser } from '../../store/users/users.slice'
 
 
 const GameCHECK = () => {
 	const [checkCode, setCheckCode] = useState('')
 	const [isValidCode, setIsValidCode] = useState(false)
 	const [ msg, setMsg ] = useState('')
-	const user = useSelector(selectUser)
-	const game = useSelector(selectCurrentGame)
   
 
 	const handleValidation = () => {

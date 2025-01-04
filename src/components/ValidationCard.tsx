@@ -1,35 +1,31 @@
 import { t } from 'i18next'
-import React, { useEffect, useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { updateUserInfo } from '../services/userService'
-import { setCurrentGame } from '../store/games/games.slice'
-import { addPoints, addSkillPoints, selectUser } from '../store/users/users.slice'
 import ConfettiComponent from './Confetti'
+import { useGameStore } from '../store/games/games-store'
 
 interface Props {
 	game: any
 }
 
 const ValidationCard = ({ game }: Props) => {
-	const dispatch = useDispatch()
 	const navigate = useNavigate()
-	const user = useSelector(selectUser)
 	const [openConff, setOpenConff] = useState(false)
+	const setCurrentGame = useGameStore(state => state.setGame)
 
 	const { game_points_reward: points, game_skill_points_reward: skill_points, game_reward_type: skill } = game
 
 	const handleGetRewards = async () => {
 		// Adding point to user
-		dispatch(addPoints(Number(points)))
+
 		// Adding skill to user
-		dispatch(addSkillPoints({ skill_points, skill }))
 
 		// Updating info on Database
 		await updateUserInfo({ points, skill, skill_points, user: user.user_id }, user.user_id)
 
 		// Reset games
-		dispatch(setCurrentGame(null))
+		setCurrentGame(0)
 
 		// Redirect
 		navigate('/dashboard')
