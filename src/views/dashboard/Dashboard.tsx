@@ -1,7 +1,5 @@
 import { t } from 'i18next'
 import { Link, Outlet, useLocation } from 'react-router-dom'
-import Header from '../../components/Header'
-import HeaderBackBtn from '../../components/HeaderBackBtn'
 import Rombo from '../../components/Rombo'
 import { motion } from 'framer-motion'
 
@@ -9,13 +7,7 @@ const Dashboard = () => {
 	const location = useLocation()
 
 	return (
-			<section id="dashboard-page" className='overflow-hidden w-full'>
-
-				{location.pathname === '/dashboard' ? (
-					<Header user={'fulanito'} />
-				) : (
-					<HeaderBackBtn />
-				)}
+			<section>
 
 				{location.pathname === '/dashboard' ? (
 					<motion.div

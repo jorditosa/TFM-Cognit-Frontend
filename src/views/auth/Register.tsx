@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import { createAccount } from "../../actions/register"
 import Button from "../../components/Button"
 import { useForm, SubmitHandler } from "react-hook-form"
@@ -18,7 +19,7 @@ export default function Register() {
 
     return (
         <form
-            className="mt-6"
+            className="mt-6 max-w-lg mx-auto"
             noValidate
             onSubmit={handleSubmit(onSubmit)}
         >
@@ -34,13 +35,12 @@ export default function Register() {
                         type="text"
                         id="username"
                         placeholder="El nom d'usuari"
-                        className="bg-light mb-2 w-full border-none p-2 rounded focus:border-transparent focus:outline-none focus:ring-0 text-dark focus-within:ring-1 focus-within:ring-secondary"
+                        className={`${errors.username ? 'border-danger' : 'border-none' } bg-light mb-2 w-full border-2 p-2 rounded focus:border-transparent focus:outline-none focus:ring-0 text-dark focus-within:ring-1 focus-within:ring-secondary`}
                         {...register("username",
                             { required: true }
                         )}
                     />
                 </label>
-                {errors.username && <span className="text-danger">This field is required</span>}
             </div>
 
             <div className="flex flex-col pb-2 m-0">
@@ -54,13 +54,12 @@ export default function Register() {
                         type="email"
                         id="email"
                         placeholder="El teu email"
-                        className="bg-light mb-2 w-full border-none p-2 rounded focus:border-transparent focus:outline-none focus:ring-0 text-dark focus-within:ring-1 focus-within:ring-secondary"
+                        className={`${errors.email ? 'border-danger' : 'border-none' } bg-light mb-2 w-full border-2 p-2 rounded focus:border-transparent focus:outline-none focus:ring-0 text-dark focus-within:ring-1 focus-within:ring-secondary`}
                         {...register("email",
                             { required: true }
                         )}
                     />
                 </label>
-                {errors.email && <span className="text-danger">This field is required</span>}
             </div>
 
             <div className="flex flex-col pb-2 m-0">
@@ -74,20 +73,25 @@ export default function Register() {
                         type="password"
                         id="password"
                         placeholder="Posa una contrasenya"
-                        className="bg-light mb-2 w-full border-none p-2 rounded focus:border-transparent focus:outline-none focus:ring-0 text-dark focus-within:ring-1 focus-within:ring-secondary"
+                        className={`${errors.password ? 'border-danger' : 'border-none' } bg-light mb-2 w-full border-2 p-2 rounded focus:border-transparent focus:outline-none focus:ring-0 text-dark focus-within:ring-1 focus-within:ring-secondary`}
                         {...register("password",
                             { required: true }
                         )}
                     />
                 </label>
-                {errors.password && <span className="text-danger">This field is required</span>}
             </div>
 
-            <div className="py-6">
+            <div className="py-6 flex justify-between">
                 <Button
                     text="Registrar-se"
                     type="submit"
                 />
+                  <Link
+                    to="/"
+                    className="text-lima hover:text-lima/80"
+                >
+                    Enrere
+                </Link>
             </div>
 
         </form>

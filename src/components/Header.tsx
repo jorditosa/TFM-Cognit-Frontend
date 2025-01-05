@@ -1,53 +1,61 @@
-import { t } from 'i18next'
 import PropTypes from 'prop-types'
-import { useNavigate } from 'react-router-dom'
 import Rombo from './Rombo'
 import Logo from '/assets/logo-no-background.svg'
-import { useLanguageStore } from '../store'
+import { useNavigate } from 'react-router-dom'
 
-const Header = ({ user }) => {
+const Header = () => {
 	const navigate = useNavigate()
-	const language = useLanguageStore(state => state.language)
 
 	return (
-		<header className='relative flex justify-between px-6'>
+		<header className='w-full flex justify-between items-center p-4'>
 			<img src={Logo} alt="logo" className='w-24 my-6 reflect' />
 
-			<Rombo
-				textContent={
-					<section className='flex flex-col gap-4'>
+			<div className='flex gap-4'>
+				<Rombo
+					textContent={
 						<div className='flex items-center gap-1'>
-							<span className='text-lg'>{user?.user_points}</span>
-							<img src="/assets/icons8-comida-natural-64.png" className="w-10" />
+							<span className='text-lg text-lima font-bold italic'>10</span>
+							<img src="/assets/icons8-comida-natural-64.png" className="w-8" />
 						</div>
-						
+					}
+					font='xs'
+					size='xs'
+				/>
+
+<Rombo
+					textContent={
 						<button 
-						onClick={() => navigate('/language')}
-						className='flex items-center w-full gap-2'
-					>
-						<p>
-							{t('home_language_btn')}
-						</p>
-						<p className='uppercase'>
-							{language}
-						</p>
-					</button>
+							onClick={() => navigate('/dashboard/general-info')}
+							className='flex items-center w-full'
+						>
+							<img src="/assets/icons8-ayuda-50.png" alt="help icon" />
+						</button>
+					}
+					font='xs'
+					size='xs'
+				/>
 
-					</section>
-				}
-				font='sm'
-				size='sm'
-				className='absolute right-0 top-0'
-			/>
-
+				<Rombo
+					textContent={
+						<button
+							onClick={() => navigate(-1)}
+							className='flex items-center w-full'
+						>
+							<img src="/assets/icons8-galón-izquierdo-64.png" className="w-full p-4" />
+						</button>
+					}
+					font='xs'
+					size='xs'
+				/>
+			</div>
 		</header>
 	)
 }
 
 Header.propTypes = {
 	user: PropTypes.oneOfType([
-		PropTypes.object, 
-		PropTypes.string, 
+		PropTypes.object,
+		PropTypes.string,
 	]),
 }
 

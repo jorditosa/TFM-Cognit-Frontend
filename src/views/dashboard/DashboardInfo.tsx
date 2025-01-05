@@ -9,7 +9,7 @@ const DashboardInfo = () => {
 
 			<motion.div>
 
-				<div className="container mt-4 w-full flex flex-col">
+				<div className="container mt-12 w-full flex flex-col">
 					<h1 className="text-lima text-3xl my-2 border-b-4 w-full border-lima px-6">
 						{t('about_app_header')}
 					</h1>

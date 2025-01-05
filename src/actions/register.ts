@@ -12,11 +12,12 @@ export const createAccount = async (data: User) => {
             username: data.username,
             email: data.email,
             password: data.password,
+            points: 0
         })
     })
 
     if (req.ok) {
-        window.location.href = '/dashboard';
+        window.location.href = '/confirm-account';
     } else {
         const errorData = await req.json();
         console.error('Error en la creación de la cuenta:', errorData.message);

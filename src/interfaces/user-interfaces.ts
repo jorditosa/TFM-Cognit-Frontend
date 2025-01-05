@@ -7,3 +7,7 @@ export interface User {
     token?: string;
     confirmed?: boolean;
 }
+
+export interface UserToken {
+    token: string;
+}

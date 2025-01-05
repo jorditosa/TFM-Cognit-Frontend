@@ -21,6 +21,7 @@ import Languages from '../views/home/Languages'
 import Authentication from '../views/auth/Authentication'
 import Login from '../views/auth/Login'
 import Register from '../views/auth/Register'
+import ConfirmAccount from '../views/auth/ConfirmAccount'
 
 const router = createBrowserRouter(
 	[
@@ -35,6 +36,7 @@ const router = createBrowserRouter(
 				{ path: '/auth', element: <Authentication /> },
 				{ path: '/login', element: <Login /> },
 				{ path: '/register', element: <Register /> },
+				{ path: '/confirm-account', element: <ConfirmAccount /> },
 				{ path: '/', element: <Navigate to="/home" /> },
 			]
 		},

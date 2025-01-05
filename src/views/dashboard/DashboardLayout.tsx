@@ -1,10 +1,13 @@
 import { Outlet } from "react-router-dom";
+import Header from "../../components/Header";
 
 export default function DashboardLayout() {
-  
- return (
-  <>
-    <Outlet />
-  </>
- )
+
+  return (
+    <main id="dashboard-page" className='overflow-hidden w-full'>
+      <Header user={'fulanito'} />
+
+      <Outlet />
+    </main>
+  )
 }
