@@ -3,7 +3,7 @@ import App from '../App'
 import DashboardInfo from '../views/dashboard/DashboardInfo'
 import ErrorPage from '../views/ErrorPage'
 import Home from '../views/home/Home'
-import Profile from '../views/profile/Profile'
+import Profile from '../views/dashboard/DashboardProfile'
 import ProfileAbout from '../views/profile/ProfileAbout'
 import ProfileSkills from '../views/profile/ProfileSkills'
 import TimesUp from '../views/TimesUp'
@@ -22,6 +22,7 @@ import Authentication from '../views/auth/Authentication'
 import Login from '../views/auth/Login'
 import Register from '../views/auth/Register'
 import ConfirmAccount from '../views/auth/ConfirmAccount'
+import DashboardProfile from '../views/dashboard/DashboardProfile'
 
 const router = createBrowserRouter(
 	[
@@ -51,6 +52,7 @@ const router = createBrowserRouter(
 			children: [
 				{ path: '/dashboard', element: <Dashboard /> },
 				{ path: '/dashboard/general-info', element: <DashboardInfo /> },
+				{ path: '/dashboard/profile', element: <DashboardProfile /> },
 			]
 		},
 		{

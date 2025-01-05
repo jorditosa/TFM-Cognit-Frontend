@@ -2,9 +2,13 @@ import PropTypes from 'prop-types'
 import Rombo from './Rombo'
 import Logo from '/assets/logo-no-background.svg'
 import { useNavigate } from 'react-router-dom'
+import { useCookies } from 'react-cookie';
+import { ENDPOINT } from '../constants/endpoints';
 
 const Header = () => {
 	const navigate = useNavigate()
+	const [ cookies ] = useCookies(['COGNIT_USER'])
+	const user = cookies.COGNIT_USER || {};
 
 	return (
 		<header className='w-full flex justify-between items-center p-4'>
@@ -14,7 +18,7 @@ const Header = () => {
 				<Rombo
 					textContent={
 						<div className='flex items-center gap-1'>
-							<span className='text-lg text-lima font-bold italic'>10</span>
+							<span className='text-lg text-lima font-bold italic'>{user.points || 0}</span>
 							<img src="/assets/icons8-comida-natural-64.png" className="w-8" />
 						</div>
 					}
@@ -22,10 +26,10 @@ const Header = () => {
 					size='xs'
 				/>
 
-<Rombo
+				<Rombo
 					textContent={
-						<button 
-							onClick={() => navigate('/dashboard/general-info')}
+						<button
+							onClick={() => navigate(ENDPOINT.info)}
 							className='flex items-center w-full'
 						>
 							<img src="/assets/icons8-ayuda-50.png" alt="help icon" />

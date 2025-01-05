@@ -2,13 +2,13 @@ import { t } from 'i18next'
 import { Link, Outlet, useLocation } from 'react-router-dom'
 import Rombo from '../../components/Rombo'
 import { motion } from 'framer-motion'
+import { ENDPOINT } from '../../constants/endpoints'
 
 const Dashboard = () => {
 	const location = useLocation()
 
 	return (
 			<section>
-
 				{location.pathname === '/dashboard' ? (
 					<motion.div
 						className='h-screen'
@@ -51,7 +51,7 @@ const Dashboard = () => {
 										size='sm'
 									/>
 								</Link>
-								<Link to='/profile' title='Profile'>
+								<Link to={ENDPOINT.profile} title='Profile'>
 									<Rombo
 										className="absolute top-24 left-8"
 										textContent={
