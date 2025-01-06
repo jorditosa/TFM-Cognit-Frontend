@@ -3,8 +3,10 @@ export const ENDPOINT = {
     users: "/users",
     languages: '/language',
     auth: "/auth",
+    register: "/register",
     dashboard: "/dashboard",
     profile: "/dashboard/profile",
-    info: "/dashboard/general-info"
+    info: "/dashboard/general-info",
+    games: "/dashboard/games"
 
 }

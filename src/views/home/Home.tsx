@@ -24,6 +24,7 @@ const Home = () => {
 						}
 						font='md'
 						size='md'
+						bg='lima'
 					/>
 				</Link>
 
@@ -37,6 +38,7 @@ const Home = () => {
 						}
 						font='sm'
 						size='sm'
+						bg='lima'
 					/>
 				</Link>
 
@@ -48,6 +50,7 @@ const Home = () => {
 						}
 						font='sm'
 						size='sm'
+						bg='lima'
 					/>
 				</Link>
 			</div>

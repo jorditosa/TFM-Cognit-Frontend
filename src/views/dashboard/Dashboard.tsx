@@ -19,7 +19,7 @@ const Dashboard = () => {
 							</h1>
 
 							<div className="relative mt-6">
-								<Link to='/games' title='Games'>
+								<Link to={ENDPOINT.games} title='Games'>
 									<Rombo
 										className="absolute top-0 -left-14"
 										textContent={
@@ -29,6 +29,7 @@ const Dashboard = () => {
 										}
 										font="md"
 										size='sm'
+										bg='lima'
 									/>
 								</Link>
 								<Link to='/profile/skills' title='Skills'>
@@ -39,6 +40,7 @@ const Dashboard = () => {
 										}
 										font="md"
 										size='sm'
+										bg='lima'
 									/>
 								</Link>
 								<Link to='/dashboard/general-info' title='General Info'>
@@ -49,6 +51,7 @@ const Dashboard = () => {
 										}
 										font="md"
 										size='sm'
+										bg='lima'
 									/>
 								</Link>
 								<Link to={ENDPOINT.profile} title='Profile'>
@@ -59,6 +62,7 @@ const Dashboard = () => {
 										}
 										font="md"
 										size='sm'
+										bg='lima'
 									/>
 								</Link>
 							</div>

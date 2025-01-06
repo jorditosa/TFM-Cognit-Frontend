@@ -5,9 +5,10 @@ interface Props {
 	textContent: ReactNode;
 	font: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 	size: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
+	bg: string;
 }
 
-const Rombo = ({ className, textContent, font, size }: Props) => {
+const Rombo = ({ className, textContent, font, size, bg }: Props) => {
   
 	// Asignación del tamaño en base al prop 'size'
 	const sizeClass = {
@@ -27,8 +28,14 @@ const Rombo = ({ className, textContent, font, size }: Props) => {
 		xl: 'text-5xl',
 	}[font] || 'text-xl'
 
+	// Asignación de colores
+	const background = {
+		lima: 'bg-lima/50',
+		blue: 'bg-blue/50',
+	}[bg] || 'bg-lima/50'
+
 	return (
-			<div className={`${sizeClass} ${fontClass} ${className} border-4 rotate-45 bg-lima/25 border-lima text-white rounded-3xl flex items-center justify-center hover:bg-dark hover:text-white transition-all duration-150 ease-linear mx-auto`}>
+			<div className={`${sizeClass} ${fontClass} ${className} ${background} border-4 rotate-45 border-lima text-white rounded-3xl flex items-center justify-center hover:bg-dark hover:text-white transition-all duration-150 ease-linear mx-auto`}>
 				<div className={'-rotate-45 text-center'}>
 					{textContent}
 				</div>

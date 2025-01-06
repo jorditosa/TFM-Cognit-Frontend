@@ -2,19 +2,16 @@ import { t } from 'i18next'
 import { Suspense } from 'react'
 import { Link } from 'react-router-dom'
 import { CircleLoader } from 'react-spinners'
-import HeaderBackBtn from '../../components/HeaderBackBtn'
 import Rombo from '../../components/Rombo'
 import useGamesInfo from '../../hooks/useGamesInfo'
 import { motion } from 'framer-motion'
 
-const GamesMenu = () => {
+const DashboardGames = () => {
 	useGamesInfo()
 
 	return (
 		<Suspense fallback={<CircleLoader color="#086375" size={25} />}>
-			<section id="game-page" className='overflow-hidden w-full h-screen'>
-
-				<HeaderBackBtn />
+			<section className='overflow-hidden w-full h-screen'>
         
 				<motion.div
 				>
@@ -36,6 +33,7 @@ const GamesMenu = () => {
 									}
 									font="md"
 									size='sm'
+									bg='blue'
 								/>
 							</Link>
 							<Link to='/games/l/recycling' title='Recycling'>
@@ -46,6 +44,7 @@ const GamesMenu = () => {
 									}
 									font="md"
 									size='sm'
+									bg='blue'
 								/>
 							</Link>
 							<Link to='/games/l/flora' title='Flora'>
@@ -56,6 +55,7 @@ const GamesMenu = () => {
 									}
 									font="md"
 									size='sm'
+									bg='blue'
 								/>
 							</Link>
 							<Link to='/games/l/fauna' title='Fauna'>
@@ -66,6 +66,7 @@ const GamesMenu = () => {
 									}
 									font="md"
 									size='sm'
+									bg='blue'
 								/>
 							</Link>
 						</div>
@@ -76,4 +77,4 @@ const GamesMenu = () => {
 		</Suspense> 
 	)
 }
-export default GamesMenu
+export default DashboardGames

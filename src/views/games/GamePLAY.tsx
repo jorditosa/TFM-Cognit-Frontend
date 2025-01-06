@@ -1,16 +1,15 @@
 import { t } from 'i18next'
 import { useEffect, useState } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import ConfettiComponent from '../../components/Confetti'
-import { getPlayingGame } from '../../services/gamesService'
 import { motion } from 'framer-motion'
 import { useGameStore } from '../../store/games/games-store'
+import { getAllGames } from '../../actions/playing-game'
 
 
 const GamePLAY = () => {
 	const navigate = useNavigate()
 	const [openConff, setOpenConff] = useState(false)
-	const location = useLocation()
 	const setCurrentGame = useGameStore(state => state.setGame)
 	const game = useGameStore(state => state.game)
 
@@ -21,11 +20,12 @@ const GamePLAY = () => {
 
 	useEffect(() => {
 		(async () => {
-			// const type = location.pathname.split('/')[location.pathname.split('/').length - 1]
+			const category = location.pathname.split('/')[location.pathname.split('/').length - 1]
 
-			//const games = await getPlayingGame(type)
+			const games = await getGames(category)
+			console.log(games)
 			// Random game
-			// const game = games[Math.floor(Math.random() * games.length)]
+			const game = games[Math.floor(Math.random() * games.length)]
 
 			setTimeout(() => {
 				setOpenConff(true)

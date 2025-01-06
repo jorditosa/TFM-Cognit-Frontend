@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion'
 import { useCookies } from 'react-cookie';
+import { formatDateTime } from '../../utils/formatDate';
 
 const ProfileView = () => {
 	const [ cookies ] = useCookies(['COGNIT_USER'])
@@ -21,7 +22,7 @@ const ProfileView = () => {
 
 			<div className='text-lima flex justify-between py-2'>
 				<p className='font-bold'>Fecha alta</p>
-				<p>{user.createdAt}</p>
+				<p>{formatDateTime(user.createdAt)}</p>
 			</div>
 		</motion.div>
 

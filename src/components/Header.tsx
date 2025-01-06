@@ -24,6 +24,7 @@ const Header = () => {
 					}
 					font='xs'
 					size='xs'
+					bg='blue'
 				/>
 
 				<Rombo
@@ -37,6 +38,7 @@ const Header = () => {
 					}
 					font='xs'
 					size='xs'
+					bg='lima'
 				/>
 
 				<Rombo
@@ -50,6 +52,7 @@ const Header = () => {
 					}
 					font='xs'
 					size='xs'
+					bg='lima'
 				/>
 			</div>
 		</header>

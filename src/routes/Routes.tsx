@@ -12,7 +12,6 @@ import ErrorApp from '../views/ErrorApp'
 import GameCHECK from '../views/games/GameCHECK'
 import GameLayout from '../views/games/GameLayout'
 import GamePLAY from '../views/games/GamePLAY'
-import GamesMenu from '../views/games/GamesMenu'
 import HomeInfo from '../views/home/HomeInfo'
 import ProfileInfo from '../views/profile/ProfileInfo'
 import Dashboard from '../views/dashboard/Dashboard'
@@ -23,6 +22,7 @@ import Login from '../views/auth/Login'
 import Register from '../views/auth/Register'
 import ConfirmAccount from '../views/auth/ConfirmAccount'
 import DashboardProfile from '../views/dashboard/DashboardProfile'
+import DashboardGames from '../views/dashboard/DashboardGames'
 
 const router = createBrowserRouter(
 	[
@@ -53,6 +53,7 @@ const router = createBrowserRouter(
 				{ path: '/dashboard', element: <Dashboard /> },
 				{ path: '/dashboard/general-info', element: <DashboardInfo /> },
 				{ path: '/dashboard/profile', element: <DashboardProfile /> },
+				{ path: '/dashboard/games', element: <DashboardGames /> },
 			]
 		},
 		{
@@ -65,14 +66,10 @@ const router = createBrowserRouter(
 			]
 		},
 		{
-			path: '/games',
-			element: <GamesMenu />,
-		},
-		{
 			path: '/games/l',
 			element: <GameLayout />,
 			children: [
-				{ path: '/games/l/:type', element: <GamePLAY /> },
+				{ path: '/games/l/:category', element: <GamePLAY /> },
 			]
 		},
 		{

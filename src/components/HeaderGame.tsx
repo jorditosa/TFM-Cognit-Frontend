@@ -1,4 +1,3 @@
-import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import Rombo from './Rombo'
 
@@ -6,7 +5,7 @@ const HeaderGame = () => {
 	const navigate = useNavigate()
 
 	return (
-		<header className='relative flex justify-between px-6'>
+		<header className='flex text-end px-6'>
 
 			<Rombo
 				textContent={
@@ -17,9 +16,10 @@ const HeaderGame = () => {
 						<img src="/assets/icons8-galón-izquierdo-64.png" className="w-14" />
 					</button>
 				}
-				font='sm'
-				size='sm'
-				className='absolute -right-8 -top-4'
+				font='xs'
+				size='xs'
+				bg='lima'
+				className='absolute right-0'		
 			/>
 		</header>
 	)
