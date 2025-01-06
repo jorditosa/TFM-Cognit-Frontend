@@ -1,6 +1,6 @@
-export async function getGames() {
+export async function getCategories() {
 
-    const url = `${import.meta.env.VITE_API_URL}games`
+    const url = `${import.meta.env.VITE_API_URL}gameCategory`
     const req = await fetch(url, {
         credentials: "include",
         headers: {

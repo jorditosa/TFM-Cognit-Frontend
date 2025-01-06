@@ -1,67 +1,90 @@
-import { t } from 'i18next'
 import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
-import ConfettiComponent from '../../components/Confetti'
+import { useNavigate, useParams } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { useGameStore } from '../../store/games/games-store'
-import { getAllGames } from '../../actions/playing-game'
+import { getGames } from '../../actions/playing-game'
+import { Game } from '../../interfaces/game-interfaces'
+import Rombo from '../../components/Rombo'
+import { CircleLoader } from 'react-spinners'
 
 
 const GamePLAY = () => {
 	const navigate = useNavigate()
-	const [openConff, setOpenConff] = useState(false)
-	const setCurrentGame = useGameStore(state => state.setGame)
-	const game = useGameStore(state => state.game)
+	const { category } = useParams()
+	const [game, setGame] = useState<Game>()
+	const [loading, setLoading] = useState(true)
+
 
 	const handleFinishedGame = () => {
 		navigate('/games-check')
 	}
 
-
 	useEffect(() => {
 		(async () => {
-			const category = location.pathname.split('/')[location.pathname.split('/').length - 1]
-
-			const games = await getGames(category)
-			console.log(games)
+			const games = await getGames()
+			// Filter by category
+			const categoryGames = games.filter((game: Game) => game.categoryId === +category!);
 			// Random game
-			const game = games[Math.floor(Math.random() * games.length)]
-
-			setTimeout(() => {
-				setOpenConff(true)
-			}, 100)
-
-
+			const gameData = categoryGames[Math.floor(Math.random() * categoryGames.length)]
 			// Setting the game
-			setCurrentGame(1)
+			setGame(gameData)
+			setLoading(false)
 		})()
-	}, [setCurrentGame])
+	}, [category])
 
 	return (
-		<>
+		<div className='h-screen'>
 			{
-				game &&
-				<motion.div 
-					className="bg-blue/5 container reflect mt-40 py-10 w-full flex flex-col justify-center px-8 rounded-lg">
-					<span className='text-center text-6xl text-lima'> ⬇⬇  </span>
-					<h1 className="text-lima text-3xl rounded-full my-6 text-center"> {game.game_title} </h1>
+				loading
+					? (<CircleLoader color="#AFFC41" size={90} />)
+					: (
+						<>
 
-					<p className="p-2 mt-4 text-lima text-xl">
-						{game.game_description}
-					</p>
+							<motion.div
+								initial={{
+									opacity: 0,
+									y: 80
+								}}
+								animate={{
+									opacity: 1,
+									y: 0
+								}}
+								transition={{
+									duration: 1
+								}}
+								className='flex flex-col pt-[25vh] items-center text-lima gap-10'
+							>
 
-					<button
-						className="block mt-20 py-2 w-full rounded-md border-lima-200 shadow-sm text-lima bg-blue border-4 border-lima text-2xl"
-						onClick={handleFinishedGame}
-					>
-						{t('game_action_cta')}
-					</button>
+								<h2 className='text-3xl uppercase font-bold'>{game?.title}</h2>
 
-					<ConfettiComponent active={openConff} />
+								<p className='font-semibold text-lg'>{game?.explanation}</p>
 
-				</motion.div>
+								<div className='w-full border-y-4 border-lima p-6 bg-lima/10 flex flex-col items-center italic font-semibold'>
+									<h3 className='uppercase'>Recompensa</h3>
+									<div className='flex items-center gap-2'>
+										<span>{game?.points_reward}</span>
+										<img src="/assets/icons8-comida-natural-64.png" className="w-12" />
+									</div>
+								</div>
+
+							</motion.div>
+							<Rombo
+								textContent={
+									<div className='flex items-center gap-1'>
+										<span className='text-lg text-lima font-bold italic'>Completat</span>
+									</div>
+								}
+								font='sm'
+								size='sm'
+								bg='blue'
+								className='absolute right-0 bottom-0'
+							/>
+						</>
+
+					)
 			}
-		</>
+		</div>
 	)
+
+
 }
 export default GamePLAY
