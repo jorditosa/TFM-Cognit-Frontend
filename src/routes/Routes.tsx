@@ -23,6 +23,7 @@ import Register from '../views/auth/Register'
 import ConfirmAccount from '../views/auth/ConfirmAccount'
 import DashboardProfile from '../views/dashboard/DashboardProfile'
 import DashboardGames from '../views/dashboard/DashboardGames'
+import GameSUCCESS from '../views/games/GameSUCCESS'
 
 const router = createBrowserRouter(
 	[
@@ -70,6 +71,8 @@ const router = createBrowserRouter(
 			element: <GameLayout />,
 			children: [
 				{ path: '/games/l/:category', element: <GamePLAY /> },
+				{ path: '/games/l/check', element: <GameCHECK /> },
+				{ path: '/games/l/success', element: <GameSUCCESS /> },
 			]
 		},
 		{

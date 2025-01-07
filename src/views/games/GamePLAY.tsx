@@ -5,6 +5,7 @@ import { getGames } from '../../actions/playing-game'
 import { Game } from '../../interfaces/game-interfaces'
 import Rombo from '../../components/Rombo'
 import { CircleLoader } from 'react-spinners'
+import { ENDPOINT } from '../../constants/endpoints'
 
 
 const GamePLAY = () => {
@@ -12,12 +13,7 @@ const GamePLAY = () => {
 	const { category } = useParams()
 	const [game, setGame] = useState<Game>()
 	const [loading, setLoading] = useState(true)
-
-
-	const handleFinishedGame = () => {
-		navigate('/games-check')
-	}
-
+	
 	useEffect(() => {
 		(async () => {
 			const games = await getGames()
@@ -32,7 +28,7 @@ const GamePLAY = () => {
 	}, [category])
 
 	return (
-		<div className='h-screen'>
+		<div className='h-screen flex justify-center items-center'>
 			{
 				loading
 					? (<CircleLoader color="#AFFC41" size={90} />)
@@ -51,7 +47,7 @@ const GamePLAY = () => {
 								transition={{
 									duration: 1
 								}}
-								className='flex flex-col pt-[25vh] items-center text-lima gap-10'
+								className='flex flex-col items-center text-lima gap-10'
 							>
 
 								<h2 className='text-3xl uppercase font-bold'>{game?.title}</h2>
@@ -69,9 +65,12 @@ const GamePLAY = () => {
 							</motion.div>
 							<Rombo
 								textContent={
-									<div className='flex items-center gap-1'>
-										<span className='text-lg text-lima font-bold italic'>Completat</span>
-									</div>
+									<button
+										onClick={() => navigate(ENDPOINT.gameFinished)}
+										className='h-full flex items-center'
+									>
+										Completat
+									</button>
 								}
 								font='sm'
 								size='sm'

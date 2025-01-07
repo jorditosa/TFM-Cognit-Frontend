@@ -1,88 +1,86 @@
 import { t } from 'i18next'
-import { useState } from 'react'
-import { useSelector } from 'react-redux'
-import HeaderBackBtn from '../../components/HeaderBackBtn'
 import Rombo from '../../components/Rombo'
-import ValidationCard from '../../components/ValidationCard'
-import { Regex } from '../../constants/regex'
+import HeaderGame from '../../components/HeaderGame'
+import { useForm, SubmitHandler } from 'react-hook-form'
+import { gameVerification } from '../../actions/game-verification'
+import { useNavigate } from 'react-router-dom'
+import { ENDPOINT } from '../../constants/endpoints'
 
+type Inputs = {
+	token: string
+}
 
 const GameCHECK = () => {
-	const [checkCode, setCheckCode] = useState('')
-	const [isValidCode, setIsValidCode] = useState(false)
-	const [ msg, setMsg ] = useState('')
-  
+	const navigate = useNavigate()
+	const {
+		register,
+		handleSubmit,
+		formState: { errors },
+		setError
+	} = useForm<Inputs>()
+	const onSubmit: SubmitHandler<Inputs> = async (data) => {
+		const res = await gameVerification(data.token)
+		console.log(res)
 
-	const handleValidation = () => {
-		setMsg('')
-    
-		// 1. Check code pattern and length
-		if(!Regex.CODE_VALIDATION.test(checkCode) || checkCode.length !== 6) {
-			setMsg('El format del Codi és incorrecte')
-			return
+		// Code verification
+		if (!res || res.token !== data.token) {
+			setError('token', { type: 'manual', message: 'Token incorrecto' })
 		}
 
-		// 2. Check validation
-		if (checkCode === user.user_code_validation) {
-			setIsValidCode(true)
-		} else {
-			setMsg('La validació no es correcta')
-		}
+		// Code valid
+		navigate(ENDPOINT.gameSuccess)
 	}
 
 	return (
 		<section id="game-page" className='w-full h-screen'>
 
-			{
-				isValidCode 
-					? (
-						null
-					)
-					: (
-						<HeaderBackBtn />
-					)
-			}
+			<HeaderGame />
 
-			<div className={`${isValidCode ? 'hidden' : 'flex'} container mt-10 w-full flex-col items-center`}>
+			<div className='flex container w-full flex-col items-center pt-[25vh]'>
 				<h2 className="text-lima text-center text-3xl p-2">
 					{t('validation_heading')}
 				</h2>
 				<p className="text-lima text-center">
 					{t('validation_subheading')}
 				</p>
-				<div className="flex flex-col items-center gap-4 mt-16">
-					<input
-						id="checkCode"
-						name="checkCode"
-						type="text"
-						value={checkCode}
-						onChange={e => setCheckCode(e.target.value)}
-						placeholder="Introdueix el codi"
-						required
-						className="border-lima shadow-mint' mt-1 py-2 w-full rounded-md border-lima-200 shadow-sm text-lima text-center text-2xl bg-blue border-4  placeholder:text-lima"
-					/>
-					{
-						msg && <p className="text-danger text-xl">{msg}</p>
-					}
-				</div>
 
-				<button
-					onClick={handleValidation}
+				<form
+					onSubmit={handleSubmit(onSubmit)}
+					className='pt-10 flex flex-col justify-center'
 				>
-					<Rombo
-						className="relative -bottom-32"
-						textContent={
-							<img src="/assets/icons8-de-acuerdo-64.png" className="w-32" />
-						}
-						font="md"
-						size='md'
-					/>
-				</button>
-			</div>
 
-			{
-				isValidCode && <ValidationCard game={game} />
-			}
+					<div className="flex flex-col pb-2 m-0">
+						<label
+							htmlFor="username"
+							className="block overflow-hidden rounded-md py-1 focus-within:border-secondary "
+						>
+							<span className="inline-block text-light pb-2"> Codi de verificació </span>
+
+							<input
+								type="text"
+								id="token"
+								placeholder="Token confirmació"
+								className={`${errors.token ? 'border-danger' : 'border-none'} bg-light mb-2 w-full border-2 p-2 rounded focus:border-transparent focus:outline-none focus:ring-0 text-dark focus-within:ring-1 focus-within:ring-secondary`}
+								{...register("token",
+									{ required: true }
+								)}
+							/>
+						</label>
+					</div>
+
+					<button
+					type='submit'
+					>
+						<Rombo
+							className="relative -bottom-20"
+							textContent={<img src="/assets/icons8-de-acuerdo-64.png" className="w-16" />}
+							font="sm"
+							size='sm' 
+							bg={''} />
+					</button>
+
+				</form>
+			</div>
 		</section>
 
 	)

@@ -7,6 +7,8 @@ export const ENDPOINT = {
     dashboard: "/dashboard",
     profile: "/dashboard/profile",
     info: "/dashboard/general-info",
-    games: "/dashboard/games"
+    games: "/dashboard/games",
+    gameFinished: "/games/l/check",
+    gameSuccess: "/games/l/success"
 
 }
