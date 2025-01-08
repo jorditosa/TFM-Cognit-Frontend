@@ -84,5 +84,9 @@
   "help_tag_game": "¿Necesitas ayuda para saber cuáles son los juegos?",
   "game_validation": "Completado",
   "token_confirmation_label": "Introduce el código de verificación",
-  "token_confirmation_placeholder": "Código"
+  "token_confirmation_placeholder": "Código",
+  "token_confirmation_error": "El código no es válido",
+  "game_success_title1": "Enhorabuena!",
+  "game_success_title2": "Juego superado",
+  "game_success_back_btn": "Volver al inicio"
 }

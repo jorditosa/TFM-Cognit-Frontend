@@ -1,27 +1,24 @@
+import { Game } from '@/interfaces/game-interfaces';
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware';
 
 interface State {
-  game: {
-    game_title: string;
-    game_description: string;
-  }
-  currentGame: number;
-  setGame: (games: number) => void;
+  currentGame: Game;
+  setCurrentGame: (game: Game) => void;
 }
 
 export const useGameStore = create<State>()(
   persist(
     (set) => ({
-      game: {
-        game_title: '',
-        game_description: ''
+      currentGame: {
+        title: '',
+        explanation: '',
+        categoryId: 0,
+        points_reward: '0'
       },
 
-      currentGame: 2,
-
-      setGame: (games) => {
-        set({currentGame: games})
+      setCurrentGame: (game: Game) => {
+        set({currentGame: game})
       }
     }),
     { name: "games" }

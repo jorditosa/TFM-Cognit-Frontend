@@ -5,6 +5,10 @@ import { useForm, SubmitHandler } from 'react-hook-form'
 import { gameVerification } from '../../actions/game-verification'
 import { useNavigate } from 'react-router-dom'
 import { ENDPOINT } from '../../constants/endpoints'
+import { updatePlayerPoints } from '../../actions/update-player-points'
+import { useGameStore } from '../../store/index'
+import { IconCheckbox } from '@tabler/icons-react'
+import { useCookies } from 'react-cookie'
 
 type Inputs = {
 	token: string
@@ -12,12 +16,15 @@ type Inputs = {
 
 const GameCHECK = () => {
 	const navigate = useNavigate()
+	const [ cookies, setCookie ] = useCookies(['COGNIT_USER'])
+	const user = cookies.COGNIT_USER || {};
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
 		setError
 	} = useForm<Inputs>()
+	const currentGame = useGameStore(state => state.currentGame)
 	const onSubmit: SubmitHandler<Inputs> = async (data) => {
 		const res = await gameVerification(data.token)
 
@@ -26,7 +33,20 @@ const GameCHECK = () => {
 			setError('token', { type: 'manual', message: 'Token incorrecto' })
 		}
 
-		// Code valid
+		// Update player points
+		const currentPoints = parseInt(user.points!, 10); 
+		const additionalPoints = parseInt(currentGame.points_reward!, 10);
+		const updatedPoints = ( currentPoints + additionalPoints ).toString()
+		await updatePlayerPoints( user, updatedPoints )
+
+		// Update cookies
+		const updatedUser = {
+			...user,
+			points: updatedPoints
+		  };
+		  setCookie('COGNIT_USER', updatedUser);
+
+		// Redirect
 		navigate(ENDPOINT.gameSuccess)
 	}
 
@@ -35,8 +55,8 @@ const GameCHECK = () => {
 
 			<HeaderGame />
 
-			<div className='flex container w-full flex-col items-center pt-[25vh]'>
-				<h2 className="text-lima text-center text-3xl p-2">
+			<div className='flex container w-full flex-col items-center pt-[25vh] px-6'>
+				<h2 className="text-lima text-center text-3xl">
 					{t('validation_heading')}
 				</h2>
 				<p className="text-lima text-center">
@@ -67,17 +87,19 @@ const GameCHECK = () => {
 								)}
 							/>
 						</label>
+						{errors.token && <span className='text-danger'>{t('token_confirmation_error')} </span> }
 					</div>
 
 					<button
 					type='submit'
+					className='pt-12'
 					>
 						<Rombo
-							className="relative -bottom-20"
-							textContent={<img src="/assets/icons8-de-acuerdo-64.png" className="w-16" />}
+							textContent={<IconCheckbox size={52} stroke={1} />
+						}
 							font="sm"
 							size='sm' 
-							bg={''} />
+							bg='blue' />
 					</button>
 
 				</form>

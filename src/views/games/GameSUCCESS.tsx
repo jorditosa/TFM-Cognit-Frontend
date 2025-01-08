@@ -1,5 +1,8 @@
 import Confetti from 'react-confetti'
 import Rombo from '../../components/Rombo'
+import { Link } from 'react-router-dom'
+import { ENDPOINT } from '../../constants/endpoints'
+import { t } from 'i18next'
 
 const GameSUCCESS = () => {
 
@@ -25,21 +28,32 @@ const GameSUCCESS = () => {
 
 			<div className='w-full h-screen text-6xl flex flex-col justify-center items-center text-lima'>
 				<Confetti
-					width={1000}
-					height={1000}
+					width={800}
+					height={1200}
+					className='mx-auto'
 				/>
-				<h2 className='uppercase'>Enhorabona!</h2>
-				<p>Joc superat</p>
+				<p>
+				{t('game_success_title1')}
+				</p>
+				<p>
+				{t('game_success_title2')}
+				</p>
 
+				<Link
+				to={ENDPOINT.dashboard}
+				>
 				<Rombo
 					className="relative -bottom-20"
 					textContent={
-						<p>Tornar al inici</p>
-					}
-					font="md"
-					size='md' 
-					bg='blue' 
-					/>
+							<p>
+								{t('game_success_back_btn')}
+							</p>
+						}
+						font="md"
+						size='md' 
+						bg='blue' 
+						/>
+						</Link>
 			</div>
 
 

@@ -3,7 +3,7 @@ export interface User {
     username: string;
     email: string;
     password: string;
-    points?: number;
+    points?: string;
     token?: string;
     confirmed?: boolean;
 }

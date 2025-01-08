@@ -84,6 +84,10 @@
   "help_tag_game": "Necessites ajuda per saber quins són els jocs?",
   "game_validation": "Completat",
   "token_confirmation_label": "Introdueix el codi de verificació",
-  "token_confirmation_placeholder": "Codi"
+  "token_confirmation_placeholder": "Codi",
+  "token_confirmation_error": "El codi no és válid",
+  "game_success_title1": "Enhorabona!",
+  "game_success_title2": "Joc superat",
+  "game_success_back_btn": "Tornar al inici"
 
 }

@@ -7,6 +7,10 @@
   src: url('/fonts/Baumans-Regular.ttf') format('truetype');
 }
 
+body {
+  font-family: 'Baumans', sans-serif;
+}
+
 /*
 Reset styles
 */

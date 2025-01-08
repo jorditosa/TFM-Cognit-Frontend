@@ -7,13 +7,15 @@ import Rombo from '../../components/Rombo'
 import { CircleLoader } from 'react-spinners'
 import { ENDPOINT } from '../../constants/endpoints'
 import { t } from 'i18next'
+import { useGameStore } from '../../store'
 
 
 const GamePLAY = () => {
 	const navigate = useNavigate()
 	const { category } = useParams()
-	const [game, setGame] = useState<Game>()
 	const [loading, setLoading] = useState(true)
+	const setCurrentGame = useGameStore(state => state.setCurrentGame)
+	const currentGame = useGameStore(state => state.currentGame)
 	
 	useEffect(() => {
 		(async () => {
@@ -22,11 +24,12 @@ const GamePLAY = () => {
 			const categoryGames = games.filter((game: Game) => game.categoryId === +category!);
 			// Random game
 			const gameData = categoryGames[Math.floor(Math.random() * categoryGames.length)]
-			// Setting the game
-			setGame(gameData)
+			
+			// Setting the game in all states
+			setCurrentGame(gameData)
 			setLoading(false)
 		})()
-	}, [category])
+	}, [setCurrentGame, category])
 
 	return (
 		<div className='h-screen flex justify-center items-center'>
@@ -51,14 +54,14 @@ const GamePLAY = () => {
 								className='flex flex-col items-center text-lima gap-10'
 							>
 
-								<h2 className='text-3xl uppercase font-bold'>{game?.title}</h2>
+								<h2 className='text-3xl uppercase font-bold'>{currentGame?.title}</h2>
 
-								<p className='font-semibold text-lg'>{game?.explanation}</p>
+								<p className='font-semibold text-lg'>{currentGame?.explanation}</p>
 
 								<div className='w-full border-y-4 border-lima p-6 bg-lima/10 flex flex-col items-center italic font-semibold'>
 									<h3 className='uppercase'>Recompensa</h3>
 									<div className='flex items-center gap-2'>
-										<span>{game?.points_reward}</span>
+										<span>{currentGame?.points_reward}</span>
 										<img src="/assets/icons8-comida-natural-64.png" className="w-12" />
 									</div>
 								</div>
