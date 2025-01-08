@@ -2,6 +2,8 @@ import { Link } from "react-router-dom"
 import Button from "../../components/Button"
 import { useForm, SubmitHandler } from "react-hook-form"
 import { confirmAccount } from "../../actions/confirm-account"
+import { t } from 'i18next'
+
 
 type Inputs = {
     token: string
@@ -34,24 +36,25 @@ export default function ConfirmAccount() {
                         type="text"
                         id="token"
                         placeholder="Codi confirmació"
-                        className={`${errors.token ? 'border-danger' : 'border-none' } bg-light mb-2 w-full border-2 p-2 rounded focus:border-transparent focus:outline-none focus:ring-0 text-dark focus-within:ring-1 focus-within:ring-secondary`}
+                        className={`${errors.token ? 'border-danger' : 'border-none'} bg-light mb-2 w-full border-2 p-2 rounded focus:border-transparent focus:outline-none focus:ring-0 text-dark focus-within:ring-1 focus-within:ring-secondary`}
                         {...register("token",
                             { required: true }
                         )}
                     />
                 </label>
-            </div>          
+                {errors.token && <small className='text-danger'>{t('register_input_token_error')} </small> }
+            </div>
 
             <div className="py-6 flex justify-between">
                 <Button
                     text="Confirmar compte"
                     type="submit"
                 />
-                  <Link
+                <Link
                     to="/"
                     className="text-lima hover:text-lima/80"
                 >
-                    Enrere
+                    {t('back_btn')}
                 </Link>
             </div>
 

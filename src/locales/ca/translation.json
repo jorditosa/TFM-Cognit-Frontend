@@ -26,6 +26,8 @@
   "register_input_legalAge_error": "Heu de ser major d'edat",
   "register_input_password_label": "Contrasenya",
   "register_input_password_placeholder": "Introdueix una contrasenya",
+  "register_input_password_error": "La contrasneya no és vàlida",
+  "register_input_token_error": "El codi de verificació no és vàlid",
   "register_cta_btn": "Registrar-me",
   "login_title": "Inicia sessió",
   "login_cta_btn": "Iniciar sessió",

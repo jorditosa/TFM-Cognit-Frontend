@@ -26,6 +26,8 @@
   "register_input_legalAge_error": "Debes ser mayor de edad",
   "register_input_password_label": "Contraseña",
   "register_input_password_placeholder": "Introduce una contraseña",
+  "register_input_password_error": "La contrasneya no es válida",
+  "register_input_token_error": "El código de verificación no es válido",
   "register_cta_btn": "Registrarme",
   "login_title": "Iniciar sesión",
   "login_cta_btn": "Iniciar sesión",

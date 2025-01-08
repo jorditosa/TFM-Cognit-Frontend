@@ -20,7 +20,7 @@ export default function Register() {
 
     return (
         <form
-            className="mt-6 max-w-lg mx-auto"
+            className="mt-6 max-w-md mx-auto w-full"
             noValidate
             onSubmit={handleSubmit(onSubmit)}
         >
@@ -44,6 +44,7 @@ export default function Register() {
                         )}
                     />
                 </label>
+                {errors.username && <small className='text-danger'>{t('register_input_name_error')} </small> }
             </div>
 
             <div className="flex flex-col pb-2 m-0">
@@ -65,6 +66,7 @@ export default function Register() {
                         )}
                     />
                 </label>
+                {errors.email && <small className='text-danger'>{t('register_input_email_error')} </small> }
             </div>
 
             <div className="flex flex-col pb-2 m-0">
@@ -86,6 +88,7 @@ export default function Register() {
                         )}
                     />
                 </label>
+                {errors.password && <small className='text-danger'>{t('register_input_password_error')} </small> }
             </div>
 
             <div className="py-6 flex justify-between">
