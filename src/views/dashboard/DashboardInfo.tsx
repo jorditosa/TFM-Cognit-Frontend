@@ -1,3 +1,4 @@
+import { IconDog, IconDroplet, IconRecycle, IconSeeding } from '@tabler/icons-react'
 import { motion } from 'framer-motion'
 import { t } from 'i18next'
 import { Trans } from 'react-i18next'
@@ -33,10 +34,10 @@ const DashboardInfo = () => {
 						<Trans i18nKey='about_app_explanation_3'>
 						</Trans>
 						<div className="flex items-center justify-between gap-2 py-2">
-							<img src="/assets/icons8-agua-64.png" alt="icono" />
-							<img src="/assets/icons8-reciclaje-64.png" alt="icono" />
-							<img src="/assets/icons8-árbol-de-hoja-caduca-64.png" alt="icono" />
-							<img src="/assets/icons8-perro-64.png" alt="icono" />
+							<IconDroplet size={52} stroke={1} />
+							<IconRecycle size={52} stroke={1} />
+							<IconSeeding size={52} stroke={1} />
+							<IconDog size={52} stroke={1} />
 						</div>
 					</article>
 

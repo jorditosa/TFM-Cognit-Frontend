@@ -1,4 +1,5 @@
 {
+  "back_btn": "Enrere",
   "home_title": "Inici",
   "home_heading": "Començar!",
   "home_language_btn": "Idioma",
@@ -21,6 +22,8 @@
   "register_input_name_error": "El username ha de contenir com a mínim 3 caràcters",
   "register_input_legalAge_label": "Confirmo que soc major d'edat per fer-me responsable de l´us d'aquesta app",
   "register_input_legalAge_error": "Heu de ser major d'edat",
+  "register_input_password_label": "Contrasenya",
+  "register_input_password_placeholder": "Introdueix una contrasenya",
   "register_cta_btn": "Registrar-me",
   "login_title": "Inicia sessió",
   "login_cta_btn": "Iniciar sessió",

@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom'
 import Rombo from './Rombo'
 import Logo from '/assets/logo-no-background.svg'
+import { IconChevronLeft } from '@tabler/icons-react'
 
 const Header = () => {
 	const navigate = useNavigate()
@@ -15,7 +16,7 @@ const Header = () => {
 						onClick={() => navigate(-1)}
 						className='flex items-center w-full'
 					>
-						<img src="/assets/icons8-galón-izquierdo-64.png" className="w-full p-4" />
+						<IconChevronLeft size={52} stroke={1} />
 					</button>}
 					font='xs'
 					size='xs' 

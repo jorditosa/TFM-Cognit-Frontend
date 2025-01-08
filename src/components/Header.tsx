@@ -4,10 +4,11 @@ import Logo from '/assets/logo-no-background.svg'
 import { useNavigate } from 'react-router-dom'
 import { useCookies } from 'react-cookie';
 import { ENDPOINT } from '../constants/endpoints';
+import { IconChevronLeft, IconInfoCircle } from '@tabler/icons-react';
 
 const Header = () => {
 	const navigate = useNavigate()
-	const [ cookies ] = useCookies(['COGNIT_USER'])
+	const [cookies] = useCookies(['COGNIT_USER'])
 	const user = cookies.COGNIT_USER || {};
 
 	return (
@@ -31,9 +32,9 @@ const Header = () => {
 					textContent={
 						<button
 							onClick={() => navigate(ENDPOINT.info)}
-							className='flex items-center w-full'
+							className='flex items-center w-full text-lima'
 						>
-							<img src="/assets/icons8-ayuda-50.png" alt="help icon" />
+							<IconInfoCircle size={52} stroke={1} />
 						</button>
 					}
 					font='xs'
@@ -45,9 +46,9 @@ const Header = () => {
 					textContent={
 						<button
 							onClick={() => navigate(-1)}
-							className='flex items-center w-full'
+							className='flex items-center w-full text-lima'
 						>
-							<img src="/assets/icons8-galón-izquierdo-64.png" className="w-full p-4" />
+							<IconChevronLeft size={52} stroke={1} />
 						</button>
 					}
 					font='xs'

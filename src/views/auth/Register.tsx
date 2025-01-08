@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import { createAccount } from "../../actions/register"
 import Button from "../../components/Button"
 import { useForm, SubmitHandler } from "react-hook-form"
+import { t } from 'i18next'
 
 type Inputs = {
     username: string
@@ -29,12 +30,14 @@ export default function Register() {
                     htmlFor="username"
                     className="block overflow-hidden rounded-md py-1 focus-within:border-secondary "
                 >
-                    <span className="inline-block text-light pb-2"> Nom d'usuari </span>
+                    <span className="inline-block text-lima uppercase pb-2"> 
+                        {t('register_input_name_label')}
+                    </span>
 
                     <input
                         type="text"
                         id="username"
-                        placeholder="El nom d'usuari"
+                        placeholder={t('register_input_name_placeholder')} 
                         className={`${errors.username ? 'border-danger' : 'border-none' } bg-light mb-2 w-full border-2 p-2 rounded focus:border-transparent focus:outline-none focus:ring-0 text-dark focus-within:ring-1 focus-within:ring-secondary`}
                         {...register("username",
                             { required: true }
@@ -48,12 +51,14 @@ export default function Register() {
                     htmlFor="email"
                     className="block overflow-hidden rounded-md py-1 focus-within:border-secondary "
                 >
-                    <span className="inline-block text-light pb-2"> Correu electrònic </span>
+                    <span className="inline-block text-lima uppercase pb-2"> 
+                        {t('register_input_email_label')}
+                    </span>
 
                     <input
                         type="email"
                         id="email"
-                        placeholder="El teu email"
+                        placeholder={t('register_input_email_placeholder')} 
                         className={`${errors.email ? 'border-danger' : 'border-none' } bg-light mb-2 w-full border-2 p-2 rounded focus:border-transparent focus:outline-none focus:ring-0 text-dark focus-within:ring-1 focus-within:ring-secondary`}
                         {...register("email",
                             { required: true }
@@ -67,12 +72,14 @@ export default function Register() {
                     htmlFor="password"
                     className="block overflow-hidden rounded-md py-1 focus-within:border-secondary "
                 >
-                    <span className="inline-block text-light pb-2"> Contrasenya </span>
+                    <span className="inline-block text-lima uppercase pb-2"> 
+                        {t('register_input_password_label')}     
+                    </span>
 
                     <input
                         type="password"
                         id="password"
-                        placeholder="Posa una contrasenya"
+                        placeholder={t('register_input_password_placeholder')} 
                         className={`${errors.password ? 'border-danger' : 'border-none' } bg-light mb-2 w-full border-2 p-2 rounded focus:border-transparent focus:outline-none focus:ring-0 text-dark focus-within:ring-1 focus-within:ring-secondary`}
                         {...register("password",
                             { required: true }
@@ -83,14 +90,14 @@ export default function Register() {
 
             <div className="py-6 flex justify-between">
                 <Button
-                    text="Registrar-se"
+                    text={t('register_title')}
                     type="submit"
                 />
                   <Link
                     to="/"
                     className="text-lima hover:text-lima/80"
                 >
-                    Enrere
+                     {t('back_btn')} 
                 </Link>
             </div>
 

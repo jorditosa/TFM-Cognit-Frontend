@@ -3,6 +3,7 @@ import { Link, Outlet, useLocation } from 'react-router-dom'
 import Rombo from '../../components/Rombo'
 import { motion } from 'framer-motion'
 import { ENDPOINT } from '../../constants/endpoints'
+import { IconCarambola, IconDeviceGamepad2, IconInfoCircleFilled, IconUser } from '@tabler/icons-react'
 
 const Dashboard = () => {
 	const location = useLocation()
@@ -24,7 +25,7 @@ const Dashboard = () => {
 										className="absolute top-0 -left-14"
 										textContent={
 											<>
-												<img src="/assets/icons8-control-64 (1).png" className="w-16" />
+												<IconDeviceGamepad2 size={52} stroke={1} />
 											</>
 										}
 										font="md"
@@ -36,7 +37,8 @@ const Dashboard = () => {
 									<Rombo
 										className="absolute top-24 right-8"
 										textContent={
-											<img src="/assets/icons8-calificación-64 (1).png" className="w-16" />
+											<IconCarambola size={52} stroke={1} />
+
 										}
 										font="md"
 										size='sm'
@@ -47,7 +49,7 @@ const Dashboard = () => {
 									<Rombo
 										className="absolute top-48 -left-14"
 										textContent={
-											<img src="/assets/icons8-información-64 (1).png" className="w-16" />
+											<IconInfoCircleFilled size={52} stroke={1} />
 										}
 										font="md"
 										size='sm'
@@ -58,7 +60,7 @@ const Dashboard = () => {
 									<Rombo
 										className="absolute top-24 left-8"
 										textContent={
-											<img src="/assets/icons8-usuario-de-género-neutro-64.png" className="w-16" />
+											<IconUser size={52} stroke={1} />
 										}
 										font="md"
 										size='sm'

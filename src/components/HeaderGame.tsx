@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import Rombo from './Rombo'
+import { IconChevronLeft } from '@tabler/icons-react'
 
 const HeaderGame = () => {
 	const navigate = useNavigate()
@@ -9,17 +10,17 @@ const HeaderGame = () => {
 
 			<Rombo
 				textContent={
-					<button 
+					<button
 						onClick={() => navigate(-1)}
-						className='flex items-center'
+						className='flex items-center text-lima'
 					>
-						<img src="/assets/icons8-galón-izquierdo-64.png" className="w-14" />
+						<IconChevronLeft size={52} stroke={1} />
 					</button>
 				}
 				font='xs'
 				size='xs'
 				bg='lima'
-				className='absolute right-0'		
+				className='absolute right-0'
 			/>
 		</header>
 	)

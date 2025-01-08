@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { CircleLoader } from 'react-spinners'
 import Rombo from '../../components/Rombo'
 import { motion } from 'framer-motion'
+import { IconDog, IconDroplet, IconRecycle, IconSeeding } from '@tabler/icons-react'
 
 const DashboardGames = () => {
 
@@ -27,7 +28,7 @@ const DashboardGames = () => {
 								<Rombo
 									className="absolute top-0 -left-14"
 									textContent={
-										<img src="/assets/icons8-agua-64.png" className="w-16" />
+										<IconDroplet size={52} stroke={1} />
 									}
 									font="md"
 									size='sm'
@@ -38,7 +39,7 @@ const DashboardGames = () => {
 								<Rombo
 									className="absolute top-24 right-8"
 									textContent={
-										<img src="/assets/icons8-reciclaje-64.png" className="w-16" />
+										<IconRecycle size={52} stroke={1} />
 									}
 									font="md"
 									size='sm'
@@ -49,7 +50,7 @@ const DashboardGames = () => {
 								<Rombo
 									className="absolute top-48 -left-14"
 									textContent={
-										<img src="/assets/icons8-árbol-de-hoja-caduca-64.png" className="w-16" />
+										<IconSeeding size={52} stroke={1} />
 									}
 									font="md"
 									size='sm'
@@ -60,7 +61,7 @@ const DashboardGames = () => {
 								<Rombo
 									className="absolute top-24 left-8"
 									textContent={
-										<img src="/assets/icons8-perro-64.png" className="w-16" />
+										<IconDog size={52} stroke={1} />
 									}
 									font="md"
 									size='sm'

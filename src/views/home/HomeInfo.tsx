@@ -2,6 +2,7 @@ import { t } from 'i18next'
 import { useNavigate } from 'react-router-dom'
 import Rombo from '../../components/Rombo'
 import { motion } from 'framer-motion'
+import { IconChevronLeft } from '@tabler/icons-react'
 
 const HomeInfo = () => {
 	const navigate = useNavigate()
@@ -11,22 +12,22 @@ const HomeInfo = () => {
 
 			<Rombo
 				textContent={
-					<button 
+					<button
 						onClick={() => navigate(-1)}
-						className='flex items-center w-full'
+						className='flex items-center w-full text-lima'
 					>
-						<img src="/assets/icons8-galón-izquierdo-64.png" className="w-full p-4" />
+						<IconChevronLeft size={52} stroke={1} />
 					</button>
 				}
 				font='xs'
 				size='xs'
-				className='absolute right-0 top-0 md:-right-20 md:-top-20'
+				className='absolute right-0 top-0'
 				bg='lima'
 			/>
 
 			<motion.div
-			initial={{ y: 100, opacity: 0}}
-			animate={{ y:0, opacity: 1}}
+				initial={{ y: 100, opacity: 0 }}
+				animate={{ y: 0, opacity: 1 }}
 			>
 				<div className="container mt-4 w-full flex flex-col">
 					<h1 className="text-lima text-3xl my-2 border-b-4 w-full border-lima px-6">
