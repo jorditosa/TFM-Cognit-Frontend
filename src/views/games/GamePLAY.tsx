@@ -8,6 +8,7 @@ import { CircleLoader } from 'react-spinners'
 import { ENDPOINT } from '../../constants/endpoints'
 import { t } from 'i18next'
 import { useGameStore } from '../../store'
+import { PiPlant } from "react-icons/pi";
 
 
 const GamePLAY = () => {
@@ -32,7 +33,7 @@ const GamePLAY = () => {
 	}, [setCurrentGame, category])
 
 	return (
-		<div className='h-screen flex justify-center items-center'>
+		<div className='h-screen flex justify-center items-center bg-dark'>
 			{
 				loading
 					? (<CircleLoader color="#AFFC41" size={90} />)
@@ -58,11 +59,13 @@ const GamePLAY = () => {
 
 								<p className='font-semibold text-lg'>{currentGame?.explanation}</p>
 
-								<div className='w-full border-y-4 border-lima p-6 bg-lima/10 flex flex-col items-center italic font-semibold'>
-									<h3 className='uppercase'>Recompensa</h3>
+								<div className='w-full border-y-4 border-lima p-6 bg-lima/10 flex flex-col items-center italic font-semibold text-xl'>
+									<h3 className='uppercase'>
+									{t('game_price_title')}
+									</h3>
 									<div className='flex items-center gap-2'>
 										<span>{currentGame?.points_reward}</span>
-										<img src="/assets/icons8-comida-natural-64.png" className="w-12" />
+										<PiPlant size={36} className='text-lima'/>
 									</div>
 								</div>
 
