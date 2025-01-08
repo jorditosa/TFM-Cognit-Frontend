@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { useCookies } from 'react-cookie';
 import { ENDPOINT } from '../constants/endpoints';
 import { FaInfoCircle, FaChevronLeft } from "react-icons/fa";
+import { PiPlant } from "react-icons/pi";
 
 const Header = () => {
 	const navigate = useNavigate()
@@ -15,12 +16,12 @@ const Header = () => {
 		<header className='w-full flex justify-between items-center p-4'>
 			<img src={Logo} alt="logo" className='w-24 my-6 reflect' />
 
-			<div className='flex gap-4'>
+			<div className='flex gap-6'>
 				<Rombo
 					textContent={
 						<div className='flex items-center gap-1'>
 							<span className='text-lg text-lima font-bold italic'>{user.points || 0}</span>
-							<img src="/assets/icons8-comida-natural-64.png" className="w-8" />
+							<PiPlant size={30} className='text-lima'/>
 						</div>
 					}
 					font='xs'

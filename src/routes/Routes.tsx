@@ -5,7 +5,6 @@ import ErrorPage from '../views/ErrorPage'
 import Home from '../views/home/Home'
 import Profile from '../views/dashboard/DashboardProfile'
 import ProfileAbout from '../views/profile/ProfileAbout'
-import ProfileSkills from '../views/profile/ProfileSkills'
 import TimesUp from '../views/TimesUp'
 
 import ErrorApp from '../views/ErrorApp'
@@ -24,6 +23,7 @@ import ConfirmAccount from '../views/auth/ConfirmAccount'
 import DashboardProfile from '../views/dashboard/DashboardProfile'
 import DashboardGames from '../views/dashboard/DashboardGames'
 import GameSUCCESS from '../views/games/GameSUCCESS'
+import DashboardSkills from '../views/dashboard/DashboardSkills'
 
 const router = createBrowserRouter(
 	[
@@ -55,13 +55,14 @@ const router = createBrowserRouter(
 				{ path: '/dashboard/general-info', element: <DashboardInfo /> },
 				{ path: '/dashboard/profile', element: <DashboardProfile /> },
 				{ path: '/dashboard/games', element: <DashboardGames /> },
+				{ path: '/dashboard/skills', element: <DashboardSkills /> },
+
 			]
 		},
 		{
 			path: '/profile',
 			element: <Profile />,
 			children: [
-				{ path: '/profile/skills', element: <ProfileSkills /> },
 				{ path: '/profile/about', element: <ProfileAbout /> },
 				{ path: '/profile/info', element: <ProfileInfo /> },
 			]

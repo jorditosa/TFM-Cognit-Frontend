@@ -9,6 +9,7 @@ export const ENDPOINT = {
     profile: "/dashboard/profile",
     info: "/dashboard/general-info",
     games: "/dashboard/games",
+    skills: "/dashboard/skills",
     gameFinished: "/games/l/check",
     gameSuccess: "/games/l/success"
 

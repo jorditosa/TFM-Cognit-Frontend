@@ -47,7 +47,7 @@ const Dashboard = () => {
 											bg='lima'
 										/>
 									</Link>
-									<Link to='/profile/skills' title='Skills'>
+									<Link to={ENDPOINT.skills} title='Skills'>
 										<Rombo
 											className="absolute top-24 right-8"
 											textContent={
