@@ -7,8 +7,8 @@ import { useNavigate } from 'react-router-dom'
 import { ENDPOINT } from '../../constants/endpoints'
 import { updatePlayerPoints } from '../../actions/update-player-points'
 import { useGameStore } from '../../store/index'
-import { IconCheckbox } from '@tabler/icons-react'
 import { useCookies } from 'react-cookie'
+import { FaCheckCircle } from 'react-icons/fa'
 
 type Inputs = {
 	token: string
@@ -31,6 +31,7 @@ const GameCHECK = () => {
 		// Code verification
 		if (!res || res.token !== data.token) {
 			setError('token', { type: 'manual', message: 'Token incorrecto' })
+			return
 		}
 
 		// Update player points
@@ -95,7 +96,7 @@ const GameCHECK = () => {
 					className='pt-12'
 					>
 						<Rombo
-							textContent={<IconCheckbox size={52} stroke={1} />
+							textContent={<FaCheckCircle size={52} />
 						}
 							font="sm"
 							size='sm' 

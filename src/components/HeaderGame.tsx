@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import Rombo from './Rombo'
-import { IconChevronLeft } from '@tabler/icons-react'
+import { FaChevronLeft } from 'react-icons/fa'
 
 const HeaderGame = () => {
 	const navigate = useNavigate()
@@ -14,7 +14,7 @@ const HeaderGame = () => {
 						onClick={() => navigate(-1)}
 						className='flex items-center text-lima'
 					>
-						<IconChevronLeft size={52} stroke={1} />
+						<FaChevronLeft size={52} />
 					</button>
 				}
 				font='xs'

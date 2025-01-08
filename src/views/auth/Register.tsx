@@ -101,6 +101,13 @@ export default function Register() {
                 </Link>
             </div>
 
+            <Link
+          to="/"
+          className="block text-lima hover:text-lima/80 pt-2"
+        >
+          {t('to_login_page')}
+        </Link>
+
         </form>
     )
 }

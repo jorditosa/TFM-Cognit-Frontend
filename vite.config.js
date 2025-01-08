@@ -12,9 +12,5 @@ export default defineConfig({
 		setupFiles: ['./setUpTests.js'],
 		testMatch: ['**/*.test.{js,jsx,ts,tsx}'],
 		globals: true
-	},
-	optimizeDeps: {
-		include: ['@tabler/icons-react'],
-		exclude: [],
-	  },
+	}
 })

@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 import Rombo from '../../components/Rombo'
 import { motion } from 'framer-motion'
 import { ENDPOINT } from '../../constants/endpoints'
-import { IconCarambola, IconDeviceGamepad2, IconInfoCircleFilled, IconUser } from '@tabler/icons-react'
 import { useEffect, useState } from 'react'
 import { CircleLoader } from 'react-spinners'
+import { FaGamepad, FaInfo, FaStar, FaUser } from 'react-icons/fa'
 
 const Dashboard = () => {
 	const [loading, setLoading] = useState(true)
@@ -39,7 +39,7 @@ const Dashboard = () => {
 											className="absolute top-0 -left-14"
 											textContent={
 												<>
-													<IconDeviceGamepad2 size={52} stroke={1} />
+													<FaGamepad size={52} />
 												</>
 											}
 											font="md"
@@ -51,7 +51,7 @@ const Dashboard = () => {
 										<Rombo
 											className="absolute top-24 right-8"
 											textContent={
-												<IconCarambola size={52} stroke={1} />
+												<FaStar size={52} />
 	
 											}
 											font="md"
@@ -63,7 +63,7 @@ const Dashboard = () => {
 										<Rombo
 											className="absolute top-48 -left-14"
 											textContent={
-												<IconInfoCircleFilled size={52} stroke={1} />
+												<FaInfo size={52} />
 											}
 											font="md"
 											size='sm'
@@ -74,7 +74,7 @@ const Dashboard = () => {
 										<Rombo
 											className="absolute top-24 left-8"
 											textContent={
-												<IconUser size={52} stroke={1} />
+												<FaUser size={52} />
 											}
 											font="md"
 											size='sm'

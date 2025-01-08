@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { CircleLoader } from 'react-spinners'
 import Rombo from '../../components/Rombo'
 import { motion } from 'framer-motion'
-import { IconDog, IconDroplet, IconRecycle, IconSeeding } from '@tabler/icons-react'
+import { FaDog, FaRecycle, FaTree, FaWater } from 'react-icons/fa'
 
 const DashboardGames = () => {
 
@@ -28,7 +28,7 @@ const DashboardGames = () => {
 								<Rombo
 									className="absolute top-0 -left-14"
 									textContent={
-										<IconDroplet size={52} stroke={1} />
+										<FaWater size={52} />
 									}
 									font="md"
 									size='sm'
@@ -39,7 +39,7 @@ const DashboardGames = () => {
 								<Rombo
 									className="absolute top-24 right-8"
 									textContent={
-										<IconRecycle size={52} stroke={1} />
+										<FaRecycle size={52} />
 									}
 									font="md"
 									size='sm'
@@ -50,7 +50,7 @@ const DashboardGames = () => {
 								<Rombo
 									className="absolute top-48 -left-14"
 									textContent={
-										<IconSeeding size={52} stroke={1} />
+										<FaTree size={52} />
 									}
 									font="md"
 									size='sm'
@@ -61,7 +61,7 @@ const DashboardGames = () => {
 								<Rombo
 									className="absolute top-24 left-8"
 									textContent={
-										<IconDog size={52} stroke={1} />
+										<FaDog size={52} />
 									}
 									font="md"
 									size='sm'

@@ -4,7 +4,7 @@ import Logo from '/assets/logo-no-background.svg'
 import { useNavigate } from 'react-router-dom'
 import { useCookies } from 'react-cookie';
 import { ENDPOINT } from '../constants/endpoints';
-import { IconChevronLeft, IconInfoCircle } from '@tabler/icons-react';
+import { FaInfoCircle, FaChevronLeft } from "react-icons/fa";
 
 const Header = () => {
 	const navigate = useNavigate()
@@ -34,7 +34,7 @@ const Header = () => {
 							onClick={() => navigate(ENDPOINT.info)}
 							className='flex items-center w-full text-lima'
 						>
-							<IconInfoCircle size={52} stroke={1} />
+							<FaInfoCircle size={52} />
 						</button>
 					}
 					font='xs'
@@ -48,7 +48,7 @@ const Header = () => {
 							onClick={() => navigate(-1)}
 							className='flex items-center w-full text-lima'
 						>
-							<IconChevronLeft size={52} stroke={1} />
+							<FaChevronLeft size={52} />
 						</button>
 					}
 					font='xs'

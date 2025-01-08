@@ -2,7 +2,7 @@ import { t } from 'i18next'
 import { useNavigate } from 'react-router-dom'
 import Rombo from '../../components/Rombo'
 import { motion } from 'framer-motion'
-import { IconChevronLeft } from '@tabler/icons-react'
+import { FaChevronLeft } from 'react-icons/fa'
 
 const HomeInfo = () => {
 	const navigate = useNavigate()
@@ -16,7 +16,7 @@ const HomeInfo = () => {
 						onClick={() => navigate(-1)}
 						className='flex items-center w-full text-lima'
 					>
-						<IconChevronLeft size={52} stroke={1} />
+						<FaChevronLeft size={52} />
 					</button>
 				}
 				font='xs'
