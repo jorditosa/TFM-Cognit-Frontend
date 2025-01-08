@@ -81,5 +81,8 @@
   "validation_congratulations_points": "Puntos",
   "validation_congratulations_button": "Continuar",
   "error_msg_userAlreadyCreated": "Ya existe un usuario con esta dirección de correo electrónico",
-  "help_tag_game": "¿Necesitas ayuda para saber cuáles son los juegos?"
+  "help_tag_game": "¿Necesitas ayuda para saber cuáles son los juegos?",
+  "game_validation": "Completado",
+  "token_confirmation_label": "Introduce el código de verificación",
+  "token_confirmation_placeholder": "Código"
 }

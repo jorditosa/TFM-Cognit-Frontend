@@ -20,7 +20,6 @@ const GameCHECK = () => {
 	} = useForm<Inputs>()
 	const onSubmit: SubmitHandler<Inputs> = async (data) => {
 		const res = await gameVerification(data.token)
-		console.log(res)
 
 		// Code verification
 		if (!res || res.token !== data.token) {
@@ -54,12 +53,14 @@ const GameCHECK = () => {
 							htmlFor="username"
 							className="block overflow-hidden rounded-md py-1 focus-within:border-secondary "
 						>
-							<span className="inline-block text-light pb-2"> Codi de verificació </span>
+							<span className="inline-block text-light pb-2"> 
+							{t('token_confirmation_label')} 
+							</span>
 
 							<input
 								type="text"
 								id="token"
-								placeholder="Token confirmació"
+								placeholder={t('token_confirmation_placeholder')} 
 								className={`${errors.token ? 'border-danger' : 'border-none'} bg-light mb-2 w-full border-2 p-2 rounded focus:border-transparent focus:outline-none focus:ring-0 text-dark focus-within:ring-1 focus-within:ring-secondary`}
 								{...register("token",
 									{ required: true }

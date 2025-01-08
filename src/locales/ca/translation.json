@@ -81,5 +81,9 @@
   "validation_congratulations_points": "Punts",
   "validation_congratulations_button": "Continuar",
   "error_msg_userAlreadyCreated": "Ja hi ha un usuari amb aquesta adreça de correu electrònic",
-  "help_tag_game": "Necessites ajuda per saber quins són els jocs?"
+  "help_tag_game": "Necessites ajuda per saber quins són els jocs?",
+  "game_validation": "Completat",
+  "token_confirmation_label": "Introdueix el codi de verificació",
+  "token_confirmation_placeholder": "Codi"
+
 }

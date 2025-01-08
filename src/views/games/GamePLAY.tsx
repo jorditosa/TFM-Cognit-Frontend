@@ -6,6 +6,7 @@ import { Game } from '../../interfaces/game-interfaces'
 import Rombo from '../../components/Rombo'
 import { CircleLoader } from 'react-spinners'
 import { ENDPOINT } from '../../constants/endpoints'
+import { t } from 'i18next'
 
 
 const GamePLAY = () => {
@@ -69,7 +70,7 @@ const GamePLAY = () => {
 										onClick={() => navigate(ENDPOINT.gameFinished)}
 										className='h-full flex items-center'
 									>
-										Completat
+										{t('game_validation')}
 									</button>
 								}
 								font='sm'
