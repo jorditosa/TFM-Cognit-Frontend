@@ -4,6 +4,7 @@ export const ENDPOINT = {
     languages: '/language',
     auth: "/auth",
     register: "/register",
+    login: "/login",
     dashboard: "/dashboard",
     profile: "/dashboard/profile",
     info: "/dashboard/general-info",

@@ -81,7 +81,7 @@ export default function Login() {
       </div>
 
       <Link
-          to="/"
+          to="/register"
           className="block text-lima hover:text-lima/80 pt-2"
         >
           {t('to_register_page')}

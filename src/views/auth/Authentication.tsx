@@ -10,14 +10,12 @@ export default function Authentication() {
   useEffect(() => {
     const user = cookies.COGNIT_USER || {};
     if (!user.id) {
-      navigate(ENDPOINT.register)
+      navigate(ENDPOINT.login)
       return
     } else {
       navigate(ENDPOINT.dashboard);
       return
     }
-
-    navigate(ENDPOINT.register)
   }, [cookies.COGNIT_USER, navigate])
 
   return null;

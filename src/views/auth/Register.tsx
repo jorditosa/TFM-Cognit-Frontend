@@ -102,7 +102,7 @@ export default function Register() {
             </div>
 
             <Link
-          to="/"
+          to="/login"
           className="block text-lima hover:text-lima/80 pt-2"
         >
           {t('to_login_page')}
