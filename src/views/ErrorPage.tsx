@@ -1,5 +1,4 @@
 import { t } from 'i18next'
-import React from 'react'
 import { Link } from 'react-router-dom'
 import Rombo from '../components/Rombo'
 import Logo from '/assets/logo-no-background.svg'
@@ -30,6 +29,7 @@ const ErrorPage = () => {
 					}
 					font="md"
 					size='sm'
+					bg='blue'
 				/>
 			</Link>
 

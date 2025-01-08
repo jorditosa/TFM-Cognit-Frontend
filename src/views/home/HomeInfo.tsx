@@ -21,6 +21,7 @@ const HomeInfo = () => {
 				font='xs'
 				size='xs'
 				className='absolute right-0 top-0 md:-right-20 md:-top-20'
+				bg='lima'
 			/>
 
 			<motion.div

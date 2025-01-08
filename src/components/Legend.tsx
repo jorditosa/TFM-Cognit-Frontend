@@ -1,5 +1,4 @@
 import { t } from 'i18next'
-import React from 'react'
 import { Link } from 'react-router-dom'
 
 const Legend = () => {

@@ -32,6 +32,7 @@ const Languages = () => {
 							}
 							font="md"
 							size="sm"
+							bg='lima'
 						/>
 					</button>
 				</Link>
@@ -48,6 +49,7 @@ const Languages = () => {
 							}
 							font="md"
 							size="sm"
+							bg='lima'
 						/>
 					</button>
 				</Link>

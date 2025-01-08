@@ -11,17 +11,16 @@ const Header = () => {
 
 			<div className='flex gap-6'>
 				<Rombo
-					textContent={
-						<button 
-							onClick={() => navigate(-1)}
-							className='flex items-center w-full'
-						>
-							<img src="/assets/icons8-galón-izquierdo-64.png" className="w-full p-4" />
-						</button>
-					}
+					textContent={<button
+						onClick={() => navigate(-1)}
+						className='flex items-center w-full'
+					>
+						<img src="/assets/icons8-galón-izquierdo-64.png" className="w-full p-4" />
+					</button>}
 					font='xs'
-					size='xs'
-				/>
+					size='xs' 
+					bg='lima'				
+					/>
 
 				<Rombo
 					textContent={
@@ -34,6 +33,7 @@ const Header = () => {
 					}
 					font='xs'
 					size='xs'
+					bg='lima'
 				/>
 			</div>
 

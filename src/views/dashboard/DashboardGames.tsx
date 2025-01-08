@@ -3,11 +3,9 @@ import { Suspense } from 'react'
 import { Link } from 'react-router-dom'
 import { CircleLoader } from 'react-spinners'
 import Rombo from '../../components/Rombo'
-import useGamesInfo from '../../hooks/useGamesInfo'
 import { motion } from 'framer-motion'
 
 const DashboardGames = () => {
-	useGamesInfo()
 
 	return (
 		<Suspense fallback={<CircleLoader color="#086375" size={25} />}>
