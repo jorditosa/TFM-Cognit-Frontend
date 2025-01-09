@@ -1,12 +1,14 @@
-import { Outlet } from 'react-router-dom'
+import { Outlet, useLocation } from 'react-router-dom'
 import ProfileView from '../profile/ProfileView'
 
 const DashboardProfile = () => {
+		const location = useLocation();
+		const {user} = location.state;
 
 	return (
 		<section className="h-screen">
       
-			<ProfileView />
+			<ProfileView user={user} />
 
 			<Outlet />
       

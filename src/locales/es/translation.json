@@ -101,5 +101,6 @@
   "token_confirmation_error": "El código no es válido",
   "game_success_title1": "Enhorabuena!",
   "game_success_title2": "Juego superado",
-  "game_success_back_btn": "Volver al inicio"
+  "game_success_back_btn": "Volver al inicio",
+  "skills_title": "Tu progreso"
 }

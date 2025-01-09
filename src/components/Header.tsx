@@ -2,15 +2,17 @@ import PropTypes from 'prop-types'
 import Rombo from './Rombo'
 import Logo from '/assets/logo-no-background.svg'
 import { useNavigate } from 'react-router-dom'
-import { useCookies } from 'react-cookie';
 import { ENDPOINT } from '../constants/endpoints';
 import { FaInfoCircle, FaChevronLeft } from "react-icons/fa";
 import { PiPlant } from "react-icons/pi";
+import { UserCookie } from '@/interfaces/user-interfaces';
 
-const Header = () => {
+interface Props {
+	user: UserCookie
+}
+
+const Header = ({user}: Props) => {
 	const navigate = useNavigate()
-	const [cookies] = useCookies(['COGNIT_USER'])
-	const user = cookies.COGNIT_USER || {};
 
 	return (
 		<header className='w-full flex justify-between items-center p-4'>

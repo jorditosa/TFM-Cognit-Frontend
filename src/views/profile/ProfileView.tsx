@@ -1,11 +1,13 @@
 import { motion } from 'framer-motion'
-import { useCookies } from 'react-cookie';
 import { t } from 'i18next'
+import { UserCookie } from '@/interfaces/user-interfaces';
 
-const ProfileView = () => {
-	const [cookies] = useCookies(['COGNIT_USER'])
-	const user = cookies.COGNIT_USER || {};
+interface Props {
+	user: UserCookie
+}
 
+const ProfileView = ({user}: Props) => {
+	
 	return (
 		<motion.div
 			className='max-w-lg mx-auto pt-12 text-xl'

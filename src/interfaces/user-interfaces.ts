@@ -8,6 +8,12 @@ export interface User {
     confirmed?: boolean;
 }
 
+export interface UserCookie {
+        id: number;
+        email: string;
+        points: string;
+}
+
 export interface UserToken {
     token: string;
 }

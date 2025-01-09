@@ -6,9 +6,12 @@ import { ENDPOINT } from '../../constants/endpoints'
 import { useEffect, useState } from 'react'
 import { CircleLoader } from 'react-spinners'
 import { FaGamepad, FaInfo, FaStar, FaUser } from 'react-icons/fa'
+import { useCookies } from 'react-cookie'
 
 const Dashboard = () => {
 	const [loading, setLoading] = useState(true)
+	const [cookies] = useCookies(['COGNIT_USER'])
+	const user = cookies.COGNIT_USER || {};
 
 	useEffect(() => {
 		const timer = setTimeout(() => {
@@ -47,7 +50,11 @@ const Dashboard = () => {
 											bg='lima'
 										/>
 									</Link>
-									<Link to={ENDPOINT.skills} title='Skills'>
+									<Link 
+									to={ENDPOINT.skills} 
+									state={{user}}
+									title='Skills'
+									>
 										<Rombo
 											className="absolute top-24 right-8"
 											textContent={
@@ -70,7 +77,10 @@ const Dashboard = () => {
 											bg='lima'
 										/>
 									</Link>
-									<Link to={ENDPOINT.profile} title='Profile'>
+									<Link 
+									to={ENDPOINT.profile} 
+									state={{user}}
+									title='Profile'>
 										<Rombo
 											className="absolute top-24 left-8"
 											textContent={

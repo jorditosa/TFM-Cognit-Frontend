@@ -3,7 +3,6 @@ import { User } from "../interfaces/user-interfaces"
 export const createAccount = async (data: User) => {
     // Register user
     const url = `${import.meta.env.VITE_API_URL}auth/create-account`
-    console.log(url)
     const req = await fetch(url, {
         method: 'POST',
         headers: {

@@ -102,6 +102,6 @@
   "token_confirmation_error": "El codi no és válid",
   "game_success_title1": "Enhorabona!",
   "game_success_title2": "Joc superat",
-  "game_success_back_btn": "Tornar al inici"
-
+  "game_success_back_btn": "Tornar al inici",
+  "skills_title": "El teu progress"
 }
