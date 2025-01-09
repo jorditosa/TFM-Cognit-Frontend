@@ -22,7 +22,7 @@ const Header = () => {
 	}
 
 	return (
-		<header className='w-full flex flex-col justify-between items-center p-4'>
+		<header className='w-full flex flex-col sm:flex-row justify-between items-center p-4'>
 			<img src={Logo} alt="logo" className='w-24 my-6 reflect' />
 
 			<div className='flex gap-6'>
