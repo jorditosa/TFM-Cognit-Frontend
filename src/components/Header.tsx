@@ -5,17 +5,13 @@ import { useNavigate } from 'react-router-dom'
 import { ENDPOINT } from '../constants/endpoints';
 import { FaInfoCircle, FaChevronLeft } from "react-icons/fa";
 import { PiPlant } from "react-icons/pi";
-import { UserCookie } from '@/interfaces/user-interfaces';
 import { IoMdLogOut } from "react-icons/io";
 import { usePlayerStore } from '../store';
 
-interface Props {
-	user: UserCookie
-}
-
-const Header = ({user}: Props) => {
+const Header = () => {
 	const navigate = useNavigate()
 	const deleteUser = usePlayerStore(state => state.deletePlayer)
+	const player = usePlayerStore(state => state.player)
 
 	const handleLogout = () => {
 		// Delete user state
@@ -32,8 +28,8 @@ const Header = ({user}: Props) => {
 			<div className='flex gap-6'>
 				<Rombo
 					textContent={
-						<div className='flex items-center gap-1'>
-							<span className='text-lg text-lima font-bold italic'>{user.points || 0}</span>
+						<div className='flex flex-col items-center'>
+							<span className='text-lg text-lima font-bold italic'>{player!.points || 0}</span>
 							<PiPlant size={30} className='text-lima'/>
 						</div>
 					}

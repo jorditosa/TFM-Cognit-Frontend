@@ -34,9 +34,8 @@ const GameCHECK = () => {
 		}
 
 		// Update player points
-		const currentPoints = user?.points; 
-		const additionalPoints = currentGame.points_reward!;
-		console.log(currentPoints,additionalPoints)
+		const currentPoints = parseInt(user!.points); 
+		const additionalPoints = parseInt(currentGame.points_reward!);
 		const updatedPoints = ( currentPoints + additionalPoints ).toString()
 		await updatePlayerPoints( user!, updatedPoints )
 
