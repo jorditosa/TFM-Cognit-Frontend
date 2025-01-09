@@ -3,6 +3,7 @@ import Button from "../../components/Button"
 import { useForm, SubmitHandler } from "react-hook-form"
 import { confirmAccount } from "../../actions/confirm-account"
 import { t } from 'i18next'
+import { CircleLoader } from "react-spinners"
 
 
 type Inputs = {
@@ -13,7 +14,7 @@ export default function ConfirmAccount() {
     const {
         register,
         handleSubmit,
-        formState: { errors },
+        formState: { errors, isSubmitting },
     } = useForm<Inputs>()
     const onSubmit: SubmitHandler<Inputs> = data => confirmAccount(data)
 
@@ -24,7 +25,7 @@ export default function ConfirmAccount() {
             onSubmit={handleSubmit(onSubmit)}
         >
             <p className="text-lima pb-6">
-                Hauràs rebut un codi al teu email, siusplau introdueix-lo aqui per confirmar el teu usuari i començar a gaudir de Cognit.
+                {t('register_confirmation')}
             </p>
 
             <div className="flex flex-col pb-2 m-0">
@@ -38,24 +39,38 @@ export default function ConfirmAccount() {
                         placeholder="Codi confirmació"
                         className={`${errors.token ? 'border-danger' : 'border-none'} bg-light mb-2 w-full border-2 p-2 rounded focus:border-transparent focus:outline-none focus:ring-0 text-dark focus-within:ring-1 focus-within:ring-secondary`}
                         {...register("token",
-                            { required: true }
+                            {
+                                required: true,
+                                pattern: {
+                                    value: /^[0-9A-Za-z]{6}$/,
+                                    message: t('register_input_token_error')
+                                }
+                            }
                         )}
                     />
                 </label>
-                {errors.token && <small className='text-danger'>{t('register_input_token_error')} </small> }
+                {errors.token && <small className='text-danger'>{t('register_input_token_error')} </small>}
             </div>
 
             <div className="py-6 flex justify-between">
-                <Button
-                    text="Confirmar compte"
-                    type="submit"
-                />
+
+                {
+                    isSubmitting
+                        ? (<CircleLoader color="#ffffff" />)
+                        : (
+                            <Button
+                                text="Confirmar compte"
+                                type="submit"
+                            />
+                        )
+                }
                 <Link
                     to="/"
                     className="text-lima hover:text-lima/80"
                 >
                     {t('back_btn')}
                 </Link>
+
             </div>
 
         </form>
