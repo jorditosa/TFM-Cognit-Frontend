@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import Button from "../../components/Button"
 import { useForm, SubmitHandler } from "react-hook-form"
 import { t } from 'i18next'
 import { loginUser } from "../../actions/login"
 import { CircleLoader } from "react-spinners"
+import { usePlayerStore } from "../../store"
 
 type Inputs = {
   username: string
@@ -12,12 +13,21 @@ type Inputs = {
 }
 
 export default function Login() {
+  const setUser = usePlayerStore(state => state.setPlayer)
+  const navigate = useNavigate()
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm<Inputs>()
-  const onSubmit: SubmitHandler<Inputs> = data => loginUser(data)
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    const res = await loginUser(data)
+    
+    // Set user state and redirect
+    setUser(res.user)
+
+    navigate("/dashboard")
+  }
 
   return (
     <form

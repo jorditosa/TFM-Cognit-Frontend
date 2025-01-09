@@ -6,8 +6,7 @@ import { gameVerification } from '../../actions/game-verification'
 import { useNavigate } from 'react-router-dom'
 import { ENDPOINT } from '../../constants/endpoints'
 import { updatePlayerPoints } from '../../actions/update-player-points'
-import { useGameStore } from '../../store/index'
-import { useCookies } from 'react-cookie'
+import { useGameStore, usePlayerStore } from '../../store/index'
 import { FaCheckCircle } from 'react-icons/fa'
 
 type Inputs = {
@@ -15,9 +14,9 @@ type Inputs = {
 }
 
 const GameCHECK = () => {
+	const user = usePlayerStore(state => state.player)
+	const updatePoints = usePlayerStore(state => state.updatePlayerPoints)
 	const navigate = useNavigate()
-	const [ cookies, setCookie ] = useCookies(['COGNIT_USER'])
-	const user = cookies.COGNIT_USER || {};
 	const {
 		register,
 		handleSubmit,
@@ -35,17 +34,14 @@ const GameCHECK = () => {
 		}
 
 		// Update player points
-		const currentPoints = parseInt(user.points!, 10); 
-		const additionalPoints = parseInt(currentGame.points_reward!, 10);
+		const currentPoints = user?.points; 
+		const additionalPoints = currentGame.points_reward!;
+		console.log(currentPoints,additionalPoints)
 		const updatedPoints = ( currentPoints + additionalPoints ).toString()
-		await updatePlayerPoints( user, updatedPoints )
+		await updatePlayerPoints( user!, updatedPoints )
 
-		// Update cookies
-		const updatedUser = {
-			...user,
-			points: updatedPoints
-		  };
-		  setCookie('COGNIT_USER', updatedUser);
+		// Update user state
+		updatePoints(updatedPoints)
 
 		// Redirect
 		navigate(ENDPOINT.gameSuccess)

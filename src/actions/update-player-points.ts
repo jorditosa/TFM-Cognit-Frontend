@@ -1,6 +1,6 @@
-import { User } from "../interfaces/user-interfaces";
+import { Player } from "../interfaces/user-interfaces";
 
-export async function updatePlayerPoints(user: User, updatedPoints: string) {
+export async function updatePlayerPoints(user: Player, updatedPoints: string) {
 
     const url = `${import.meta.env.VITE_API_URL}auth/users/points`
     const req = await fetch(url, {

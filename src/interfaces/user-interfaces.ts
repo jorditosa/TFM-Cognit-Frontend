@@ -14,6 +14,11 @@ export interface UserCookie {
         points: string;
 }
 
+export interface Player {
+    email: string;
+    points: string;
+}
+
 export interface UserToken {
     token: string;
 }

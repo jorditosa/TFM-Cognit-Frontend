@@ -15,7 +15,7 @@ export const confirmAccount = async (token: UserToken) => {
     })
 
     if (req.ok) {
-        window.location.href = '/dashboard';
+        return req.json()
     } else {
         const errorData = await req.json();
         console.error('Error en la confirmación de la cuenta:', errorData.message);

@@ -1,9 +1,10 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 import Button from "../../components/Button"
 import { useForm, SubmitHandler } from "react-hook-form"
 import { confirmAccount } from "../../actions/confirm-account"
 import { t } from 'i18next'
 import { CircleLoader } from "react-spinners"
+import { usePlayerStore } from "../../store"
 
 
 type Inputs = {
@@ -11,12 +12,23 @@ type Inputs = {
 }
 
 export default function ConfirmAccount() {
+    const setUser = usePlayerStore(state => state.setPlayer)
+    const navigate = useNavigate()
     const {
         register,
         handleSubmit,
         formState: { errors, isSubmitting },
     } = useForm<Inputs>()
-    const onSubmit: SubmitHandler<Inputs> = data => confirmAccount(data)
+    const onSubmit: SubmitHandler<Inputs> = async (data) => {
+
+        const res = await confirmAccount(data);
+
+        // Set user state and redirect
+        setUser(res.user)
+
+        navigate("/dashboard")
+
+    }
 
     return (
         <form

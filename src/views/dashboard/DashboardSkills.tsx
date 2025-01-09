@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 
 const DashboardSkills = () => {
 	const location = useLocation();
-	const { user } = location.state;
-	const percentage = Math.min((user.points / 2000) * 100, 100);
+	const { player } = location.state;
+	const percentage = Math.min((player.points / 2000) * 100, 100);
 
 	return (
 		<section

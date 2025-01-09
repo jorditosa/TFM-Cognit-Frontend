@@ -6,8 +6,8 @@ import { ENDPOINT } from '../constants/endpoints';
 import { FaInfoCircle, FaChevronLeft } from "react-icons/fa";
 import { PiPlant } from "react-icons/pi";
 import { UserCookie } from '@/interfaces/user-interfaces';
-import { logout } from '../actions/logout';
 import { IoMdLogOut } from "react-icons/io";
+import { usePlayerStore } from '../store';
 
 interface Props {
 	user: UserCookie
@@ -15,6 +15,15 @@ interface Props {
 
 const Header = ({user}: Props) => {
 	const navigate = useNavigate()
+	const deleteUser = usePlayerStore(state => state.deletePlayer)
+
+	const handleLogout = () => {
+		// Delete user state
+		deleteUser()
+
+		// Redirect
+		navigate("/")
+	}
 
 	return (
 		<header className='w-full flex justify-between items-center p-4'>
@@ -63,7 +72,7 @@ const Header = ({user}: Props) => {
 				<Rombo
 					textContent={
 						<button
-							onClick={() => logout()}
+							onClick={handleLogout}
 							className='flex items-center w-full text-lima'
 						>
 							<IoMdLogOut size={52} />

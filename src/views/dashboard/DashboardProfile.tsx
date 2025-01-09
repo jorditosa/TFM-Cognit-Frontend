@@ -3,13 +3,13 @@ import ProfileView from '../profile/ProfileView'
 
 const DashboardProfile = () => {
 		const location = useLocation();
-		const user = location.state;
-		console.log(user)
+		const {player} = location.state;
+		console.log(player)
 
 	return (
 		<section className="h-screen">
       
-			<ProfileView user={user} />
+			<ProfileView user={player} />
 
 			<Outlet />
       

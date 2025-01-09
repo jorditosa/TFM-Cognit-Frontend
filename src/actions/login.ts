@@ -15,7 +15,7 @@ export async function loginUser(data: User) {
     })
 
     if (req.ok) {
-        window.location.href = '/dashboard';
+        return req.json()
     } else {
         const errorData = await req.json();
         console.error('Error en la autenticación:', errorData.message);
