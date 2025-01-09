@@ -3,7 +3,8 @@ import ProfileView from '../profile/ProfileView'
 
 const DashboardProfile = () => {
 		const location = useLocation();
-		const {user} = location.state;
+		const user = location.state;
+		console.log(user)
 
 	return (
 		<section className="h-screen">

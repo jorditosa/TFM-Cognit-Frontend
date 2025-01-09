@@ -6,6 +6,8 @@ import { ENDPOINT } from '../constants/endpoints';
 import { FaInfoCircle, FaChevronLeft } from "react-icons/fa";
 import { PiPlant } from "react-icons/pi";
 import { UserCookie } from '@/interfaces/user-interfaces';
+import { logout } from '../actions/logout';
+import { IoMdLogOut } from "react-icons/io";
 
 interface Props {
 	user: UserCookie
@@ -52,6 +54,19 @@ const Header = ({user}: Props) => {
 							className='flex items-center w-full text-lima'
 						>
 							<FaChevronLeft size={52} />
+						</button>
+					}
+					font='xs'
+					size='xs'
+					bg='lima'
+				/>
+				<Rombo
+					textContent={
+						<button
+							onClick={() => logout()}
+							className='flex items-center w-full text-lima'
+						>
+							<IoMdLogOut size={52} />
 						</button>
 					}
 					font='xs'

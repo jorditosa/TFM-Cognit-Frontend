@@ -41,7 +41,13 @@ export default function Login() {
             placeholder={t('login_input_email_placeholder')}
             className={`${errors.email ? 'border-danger' : 'border-none'} bg-light mb-2 w-full border-2 p-2 rounded focus:border-transparent focus:outline-none focus:ring-0 text-dark focus-within:ring-1 focus-within:ring-secondary`}
             {...register("email",
-              { required: true }
+              {
+                required: true,
+                pattern: {
+                  value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                  message: t('register_input_email_error'),
+                },
+              }
             )}
           />
         </label>
@@ -65,11 +71,11 @@ export default function Login() {
             {...register("password",
               {
                 required: true,
-                pattern: {
-                  value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
-                  message: t('register_input_email_error'),
+                minLength: {
+                    value: 8,
+                    message: t('register_input_password_error_length'),
                 },
-              }
+            }
             )}
           />
         </label>
